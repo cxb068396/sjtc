@@ -1,0 +1,8 @@
+<!--pages/my/setting/about/about.wxml-->
+<view class="">
+  <view class="index_img">
+    <image src="../../../static/images/detail_icon.png"></image>
+  </view>
+  <view class="index_zhuce" bindtap="toRegister">《诗酒天成注册协议》</view>
+  <view class="index_use" bindtap="toSecret">《用户使用协议》</view>
+</view>

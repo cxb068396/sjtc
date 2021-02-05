@@ -1,0 +1,113 @@
+var app = getApp()
+var api = require('../../../../config/api')
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    hasShowCoupon: [], //获取所有的优惠券
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.ShowCoupon()
+  },
+  ShowCoupon() {
+    var that = this
+    const data = {
+      token: wx.getStorageSync('access_token')
+    }
+    app.request(api.ShowCoupon, 'POST', data).then(data => {
+      data.forEach(item=>{
+        if(item.coupon_type==1){
+          item.minus=item.minus/100
+        }else{
+          item.minus=item.minus/10
+        }
+      })
+      that.setData({
+        hasShowCoupon: data
+      })
+    })
+  },
+  //领取优惠券
+  GetCoupon(e) {
+    wx.showLoading()
+    var that = this
+    const data = {
+      token: wx.getStorageSync('access_token'),
+      coupon_code: e.currentTarget.dataset.code
+    }
+    app.request(api.GetCoupon, 'POST', data).then(data => {
+      wx.showToast({
+        title: '领取成功',
+      })
+      wx.hideLoading()
+      that.ShowCoupon()
+    }).catch(err => {
+      wx.showToast({
+        title: data.mes
+      })
+      wx.hideLoading()
+    })
+  },
+
+  // 跳转到coupon页面
+  toCoupon() {
+wx.switchTab({
+  url: '/pages/index/index',
+})
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

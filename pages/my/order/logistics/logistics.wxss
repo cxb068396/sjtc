@@ -1,0 +1,333 @@
+/* pages/my/myorder/logistics/logistics.wxss */
+/* 头部 */
+page{
+  padding:15rpx 30rpx;
+  position: relative;
+}
+/*暂无信息*/
+.search_no{
+  width: 100%;
+  height: 95rpx;
+  position: relative;
+  text-align: center;
+}
+.font_14{
+  width: 379rpx;
+  height: 346rpx;
+  margin: 148rpx auto;
+  margin-bottom: 29rpx;
+}
+.scimg{
+  width: 379rpx;
+  height: 346rpx;
+}
+.search_no>text{
+  font-size:28rpx;
+  color:rgba(205,205,205,1);
+}
+.logistic_header{
+  width:690rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+}
+.container_info{
+  position: relative;
+}
+.logistic_info{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.logistic_info image{
+  width: 60rpx;
+  height:60rpx;
+  margin:0 17rpx;
+  border-radius: 50%;
+}
+.logistic_info text{
+  font-size: 28rpx;
+  color:#222;
+}
+.logistic_infos{
+  width:690rpx;
+  margin-top: 30rpx;
+  /* height: 500rpx; */
+  overflow: hidden;
+  /* position:fixed; */
+  bottom: 0;
+}
+
+.infos_header{
+  width:100%;
+  border-radius: 30rpx;
+  background-color: #fff;
+}
+.infos_top{
+  display: flex;
+  padding: 20rpx 30rpx;
+}
+.infos_top image{
+ width: 50rpx;
+ height: 50rpx;  
+ margin-right: 21rpx;
+}
+.infos_top_detail{
+  display: flex;
+  flex-direction: column;
+}
+.infos_top_detail .name{
+  font-size: 28rpx;
+  color: #222;
+  margin-bottom: 13rpx;
+}
+.infos_top_detail .phone{
+  font-size: 22rpx;
+  color:#888
+}
+.infos_bot{
+  font-size: 20rpx;
+  background-color: #F6F6F6;
+  color:#888;
+  padding-left: 30rpx;
+ height: 60rpx;
+ line-height: 60rpx;
+ border-bottom-right-radius:30rpx;
+  border-bottom-left-radius:30rpx;
+}
+.infos_bot text{
+  margin-right: 16rpx;
+}
+
+.logisit_info{
+  width:690rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  border-top-right-radius:30rpx;
+  border-top-left-radius:30rpx;
+  box-sizing: border-box;
+}
+ 
+.expressRecord {
+  width: 690rpx;
+  padding-top: 30rpx;
+  padding-bottom: 200rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+}
+ 
+.expressRecord-getAddress {
+  width: 100%;
+  font-size: 22rpx;
+  color: #999;
+  display: flex;
+}
+ 
+.expressRecord-top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+ 
+.getAddress-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #FF3C00;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 72rpx;
+}
+ 
+.getAddress-text {
+  margin-left: 20rpx;
+ color:#FF3C00;
+ font-size: 20rpx;
+}
+ 
+.noReach-online-top-close {
+  width: 1rpx;
+  height: 50rpx;
+  background: #d7d7d7;
+  margin-left: 95rpx;
+}
+ 
+.expressRecord-single-close {
+  width: 100%;
+  height: 118rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+ 
+.expressRecord-single-noReach-online-top-close {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.online-top-closing {
+  width: 1rpx;
+  height: 50rpx;
+  background: #d7d7d7;
+  margin-left: 95rpx;
+}
+ 
+.online-top-close {
+  width: 1rpx;
+  height: 50rpx;
+  background: #999;
+  margin-left: 95rpx;
+}
+ 
+.dot-closing {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: linear-gradient(#FE8A04,#F85600);
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 72rpx;
+}
+ .dot-closing image{
+   width:30rpx;
+   height:24rpx
+ }
+.dot-close {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  margin-left: 90rpx;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  background: #DDDDDD;
+}
+ .dot-close1{
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  border: 2rpx solid #ddd;
+  justify-content: center;
+  align-items: center;
+  margin-left: 68rpx;
+ }
+ .dot-close1 image{
+   width:30rpx;
+   height:24rpx
+ }
+.online-bottom {
+  width: 1rpx;
+  height: 50rpx;
+  background: #999;
+  margin-left: 95rpx;
+}
+ 
+.online-bottom-start {
+  width: 1rpx;
+  height: 50rpx;
+  /* background: #999; */
+  margin-left: 95rpx;
+}
+ 
+.expressRecord-text {
+  margin-left: 38rpx;
+}
+ 
+.expressRecord-statusing {
+  font-size: 26rpx;
+  color: #333;
+}
+ 
+.expressRecord-status-addressing {
+  font-size: 22rpx;
+  color: #333;
+}
+ 
+ 
+.expressRecord-status {
+  font-size: 26rpx;
+  color: #999;
+}
+ 
+.expressRecord-status-address {
+  font-size: 22rpx;
+  color: #999;
+}
+ 
+.expressRecord-dating {
+  position: absolute;
+  height: 100%;
+  /* top: 0;
+  bottom: 0; */
+  left: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #333;
+}
+ 
+.expressRecord-date {
+  position: absolute;
+  height: 100%;
+  /* top: 0;
+  bottom: 0; */
+  left: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #999;
+}
+ 
+.expressRecord-date-text {
+  font-size: 19rpx;
+}
+ 
+.expressRecord-date-time {
+  font-size: 18rpx;
+}
+/**加载更多**/
+.get_btns{
+position: fixed;
+bottom: 0rpx;
+}
+.moreInfo{
+  display: flex;
+  font-size: 20rpx;
+  color:#888;
+  width: 690rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  background-color: rgba(255,255,255,1);
+  justify-content: center;
+  align-items: center;
+}
+.moreInfo image{
+  width:20rpx;
+  height:20rpx;
+  margin-left: 10rpx;
+}
+.map{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.info{
+  position: fixed;
+  top: 30rpx;
+  z-index: 99;
+}

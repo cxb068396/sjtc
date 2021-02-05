@@ -1,0 +1,58 @@
+page{
+  background-color: #F6F6F6;
+}
+.book_container{
+  width: 710rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.book_container .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book_container .header .left{
+  color: #343434;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+.header .left text{
+  color: #BD4044;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 10rpx;
+}
+.header .right{
+  color: #BD4044;
+  font-size: 32rpx;
+
+}
+.contents{
+  margin-top: 30rpx;
+}
+.wineInfo{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.wineInfo image{
+  width: 220rpx;
+  height: 167rpx;
+  margin-right: 40rpx;
+}
+.wineInfo .info_right{
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+}
+.wineInfo .info_right .title{
+  font-size: 32rpx;
+  color: #333;
+}
+.wineInfo .info_right .pernum{
+  font-size: 24rpx;
+  color: #999;
+}

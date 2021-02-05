@@ -1,0 +1,229 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.0",
+  "appid": "wxb348ff5a24e711cd",
+  "projectname": "sjtc",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "pages/my/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的优惠券",
+          "pathName": "pages/my/coupon/coupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "登录",
+          "pathName": "pages/logs/logs",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "pages/index/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单详情",
+          "pathName": "pages/my/order/orderDetail/orderDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "结算",
+          "pathName": "pages/cart/accounts/accounts",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "领取优惠券",
+          "pathName": "pages/my/coupon/drawCoupon/drawCoupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "余额",
+          "pathName": "pages/my/member/member",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收货地址",
+          "pathName": "pages/my/person/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分类",
+          "pathName": "pages/category/category",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分类",
+          "pathName": "pages/category/category",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "结算",
+          "pathName": "pages/cart/accounts/accounts",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "支付",
+          "pathName": "pages/cart/pay/pay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "短信验证",
+          "pathName": "pages/my/person/note/note",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "支付管理",
+          "pathName": "pages/my/setForget/setForget",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "pages/index/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "品酒",
+          "pathName": "pages/my/wineTasting/wineTasting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "预订信息",
+          "pathName": "pages/my/wineBook/wineBook",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发票抬头",
+          "pathName": "pages/my/invoice/ivpayable/ivpayable",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "优惠券",
+          "pathName": "pages/my/coupon/coupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单开票",
+          "pathName": "pages/my/invoice/ordering/ordering",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的发票",
+          "pathName": "pages/my/invoice/invoice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/wineBook/wineBook",
+          "pathName": "pages/my/wineBook/wineBook",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

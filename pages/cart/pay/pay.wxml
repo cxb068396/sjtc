@@ -1,0 +1,111 @@
+<view class='pay_container'>
+	<view class='header_bgc'></view>
+	<view class='prompt'>
+		<view class='prompt_info'>
+			<image src='../../static/images/success.png'></image>
+			<view class='prompt_info_right'>
+				<view class='info_top'>订单提交成功，请尽快完成支付！</view>
+				<view class='info_time'>超时，订单将自动取消，计时：{{countdown}}</view>
+			</view>
+		</view>
+	</view>
+	<!-- 地址start -->
+	<view class='address'  wx:if='{{address}}'>
+		<view class='img'>
+			<image src="../../static/images/btn_position.png"></image>
+		</view>
+		<view class='address_info'>
+			<view class='address_info_top'>
+				<view class='name'>{{address.name}}</view>
+				<view class='mobile'>{{address.mobile}}</view>
+			</view>
+			<view class='address_bottom'>{{address.province}}{{address.city}}{{address.county}}{{address.area}}</view>
+		</view>
+	</view>
+	<!-- 地址end -->
+	<!---订单信息start--->
+	<view class='order_info'>
+		<!--头部-->
+		<view class='order_info_title'>
+			<text></text>
+			<view>订单信息</view>
+		</view>
+		<!--中间-->
+		<view class='order_info_content'>
+		<block wx:for='{{carts}}' wx:key='index'>
+			<view class='order_content'>
+				<image src='{{item.main_images}}'></image>
+				<view class='order_title'>
+					<view class='title'>{{item.title}}</view>
+					<!-- <view class='new'>{{item.description}}</view> -->
+					<view class='price'>
+						<view class='newprice'>￥{{item.sell_price}}</view>
+						<!-- <view class='oldprice'>￥2000</view> -->
+					</view>
+				</view>
+				<view class="stepper">
+					x {{item.num}}
+				</view>
+			</view>
+			</block>
+		</view>
+		<!--底部-->
+		<view class='order_info_bottom'>
+			<view class='top'>
+				<view class='top_info'>
+					<view class='left'>订单总额</view>
+					<view class='right'>￥{{total}}</view>
+				</view>
+				<view class='top_info'>
+					<view class='left'>优惠劵抵扣</view>
+					<view class='right'>￥{{discounts}}</view>
+				</view>
+				<view class='top_info'>
+					<view class='left'>邮寄费用</view>
+					<view class='right'>￥{{freight}}</view>
+				</view>
+			</view>
+			<view class='middle'>
+				<view class='middle_all'>
+					<view>实付金额:<text>￥{{total}}</text></view>
+				</view>
+			</view>
+			<view class='bottom'>
+				<view class='onther_info'>
+					<view>订单号：<text>{{order_num}}</text></view>
+				</view>
+				<view class='onther_info'>
+					<view>下单时间：<text>{{create_time}}</text></view>
+				</view>
+				<view class='onther_info'>
+					<view>订单备注：<text>无</text></view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!---订单信息end--->
+</view>
+<view class='btn'>
+	<view class='cancel' bindtap="cancelOrder">取消订单</view>
+	<view class='confirm' bindtap="paymaney">去支付</view>
+</view>
+<!-- 密码输入框 -->
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'><text>使用会员余额支付需要验证身份，验证通过后才可进行支付。</text></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{pwdVal.length>i}}'></text>
+            </view>
+        </view>
+        <view class='forget_pwd' catchtap='goNote'>忘记密码</view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>
+<modal></modal>

@@ -1,0 +1,18 @@
+<view class='setForget'>
+	<block wx:if='{{pass}}'>
+		<view class='set' bindtap="gopayPassword">
+			<view>设置支付密码</view>
+			<image src="../../static/images/more_right.png"></image>
+		</view>
+	</block>
+	<block wx:else>
+		<view class='set' bindtap="goSet">
+			<view>重置支付密码</view>
+			<image src="../../static/images/more_right.png"></image>
+		</view>
+		<view class='set' bindtap="goForget">
+			<view>忘记支付密码</view>
+			<image src="../../static/images/more_right.png"></image>
+		</view>
+	</block>
+</view>

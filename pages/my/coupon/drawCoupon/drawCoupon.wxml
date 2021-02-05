@@ -1,0 +1,29 @@
+<view class='noCoupon' wx:if='{{hasShowCoupon.length<0}}'>
+	<image src='../../../static/images/nocoupon.png'></image>
+	<view>今日没有好劵放送哦~</view>
+</view>
+
+<view class='hasCoupon' wx:if='{{hasShowCoupon.length>0}}'>
+<block wx:for='{{hasShowCoupon}}' wx:key='index'>
+	<view class='hasCoupon_item'>
+		<image src='../../../static/images/day_coupon.png'></image>
+		<view class='hasCoupon_item_left'>
+			<view>{{item.coupon_type==1?'￥':'折'}}<text>{{item.minus}}</text></view>
+			<view class="conpon_left_bottom">{{item.coupon_type==1?'满减券':'折扣券'}}</view>
+		</view>
+		<view class='hasCoupon_item_middle'>
+			<view>{{item.coupon_name}}</view>
+			<view wx:if='{{item.valid_type==1}}'>截止兑换日期{{item.valid_time}}</view>
+			<view wx:if='{{item.valid_type==2}}'>有效时间是{{item.valid_date}}天</view>
+		</view>
+		<view class='hasCoupon_item_right'>
+			<view class='btn' wx:if='{{item.flag==0}}' data-code='{{item.coupon_code}}' bindtap="GetCoupon">立即领取</view>
+			<view class='btn on'  wx:if='{{item.flag==1}}'>已领取</view>
+		</view>
+	</view>
+</block>
+
+</view>
+<view class="footer_coupon" wx:if='{{hasShowCoupon.length>0}}'>
+	<view class='rightUser' bindtap="toCoupon">立即使用</view>
+</view>

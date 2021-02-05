@@ -1,0 +1,231 @@
+/* 重写 checkbox 样式 */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+  border-radius: 50%;/* 圆角 */
+  width: 30rpx; /* 背景的宽 */
+  height: 30rpx; /* 背景的高 */
+  
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: 1rpx solid #BD4044;
+  background: #BD4044;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;/* 圆角 */
+  width: 30rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 30rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 30rpx;
+  text-align: center;
+  font-size:28rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.cart_xf{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  float: left;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100rpx;
+  padding-right: 30rpx;
+}
+.z_wei{
+  width: 100%;
+  height:220rpx ;
+}
+.cart_xf_qx{
+  padding-left: 60rpx;
+  color: #666666;
+  font-size: 24rpx;
+}
+page{
+  background: #f6f6f6;
+}
+
+.stepper {   
+  height: 42rpx;  
+  /*给主容器设一个边框*/  
+  border: 1px solid #ccc;  
+  border-radius: 3rpx; 
+  margin-top: 120rpx;
+  overflow: hidden;
+
+}  
+
+/*加号和减号*/  
+.stepper text {  
+  width: 48rpx;  
+  line-height: 42rpx;  
+  text-align: center;  
+  float: left;  
+}  
+
+/*数值*/  
+.stepper input {  
+  width: 68rpx;  
+  /* height: 42rpx;   */
+  float: left;  
+  margin: 0 auto;  
+  text-align: center;  
+  font-size: 12px;  
+  /*给中间的input设置左右边框即可*/  
+  border-left: 1px solid #ccc;  
+  border-right: 1px solid #ccc;  
+  /* min-height: 30rpx; */
+}  
+
+/*普通样式*/  
+.stepper .normal{  
+  color: black;  
+}  
+
+/*普通样式*/  
+.stepper .normal{  
+  color: #fff;
+  background-color: #BD4044;  
+}   
+.order_shopimg{
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+  top: 50%;
+  margin-top: -75rpx;
+  margin-left: 13rpx;
+}
+.order{
+  height: 200rpx;
+  background: #ffffff;
+  margin-bottom: 10rpx;
+  display: flex;
+  position: relative;
+  padding-right: 30rpx;
+  padding-left: 30rpx;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+.order_sku{
+   width: 290rpx;
+   height: 150rpx;
+   display: flex;
+   flex-direction:column;
+   justify-content:space-between;
+   position: relative;
+   top: 50%;
+   margin-top: -75rpx;
+   margin-left: 20rpx;  
+}
+.order_radio{
+  line-height: 220rpx;
+}
+.order_title{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+.order_price{
+  font-size: 40rpx;
+  color: #BD4044;
+  font-weight: 700;
+}
+.order_activity{
+  width: 160rpx;
+  height: 40rpx;
+  background: #f9f9f9;
+  color: #999999;
+  border-radius: 5rpx;
+  text-align: center;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+
+}
+.settlement{
+  width: 220rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  background: #BD4044;
+  color: #ffffff;
+  text-align: center;
+}
+.cart_xf_total{
+  font-size: 24rpx;
+  color: #222222;
+}
+.cart_xf_jiage{
+  font-size: 24rpx;
+  color: #BD4044;
+}
+.cart_bg{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  margin-top: 10rpx;
+  position: absolute;
+}
+.cart_bgcen{
+  color: #CDCDCD;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 25%;
+}
+.cart_bgcen>image{
+  width: 377rpx;
+  height: 341rpx;
+  margin-top: 175rpx;
+  margin-left: 20rpx;
+}
+.allDel{
+ font-size:24rpx;
+ color:#BD4044;
+ line-height: 100rpx;
+ display: inline-block;
+ margin-left: 20rpx;
+ margin-top: -3rpx;
+}
+.alldel_middele{
+  margin-left: 100rpx;
+  display: flex;
+  flex-direction: column;
+}
+.alldel_middele .desc{
+  font-size: 20rpx;
+  color: #999;
+}
+.del-btn {
+  width: 180rpx;
+  height: 220rpx;
+  font-size: 35rpx;
+  position: absolute;
+  background-color: #BD4044;
+  right: -180rpx;
+  bottom: 0;
+  z-index: 15;
+  line-height: 220rpx;
+  text-align: center;
+  color: white;
+  }
+.order_container{
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.checked{
+  position: relative;
+  top: -6.5rpx;
+}

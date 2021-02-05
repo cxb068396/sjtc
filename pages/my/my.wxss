@@ -1,0 +1,152 @@
+page {
+  background-color: #F6F6F6;
+}
+
+.login {
+  width: 100%;
+  height: 280rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #BD4044;
+}
+
+.login_info,
+.login_info_in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login_info_in image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 30rpx;
+  border-radius: 50%;
+}
+
+.login_info .img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 150rpx;
+  margin-bottom: 30rpx;
+}
+
+.login_info .img image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.login_info .long_btn {
+  width: 120rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #fff;
+}
+
+.login_info_in .long_btn {
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.member_preferential {
+  position: relative;
+  width: 100%;
+  height: 160rpx;
+}
+
+.member_preferential .member {
+  position: absolute;
+  bottom: 55rpx;
+  left: 25rpx;
+  width: 711rpx;
+  height: 160rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.member_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 175rpx;
+}
+
+.member_left .duanxian {
+  width: 44rpx;
+  height: 2rpx;
+  background-color: #BD4044;
+  margin-bottom: 20rpx;
+}
+
+.member_left .nums {
+  font-size: 52rpx;
+  color: #D9B68E;
+  font-weight: bold;
+}
+.member_left .nums text{
+  font-size: 28rpx;
+}
+.member_left .member_title {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.member_middle {
+  width: 2rpx;
+  height: 100rpx;
+  background-color: #BD4044;
+  margin-top: 30rpx;
+}
+
+.order_bill {
+  width: 710rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  margin-left: 20rpx;
+}
+
+.order_bill>view:first-child {
+  border-bottom: 1rpx solid #F6F6F6;
+}
+
+.order_bill_list {
+  padding: 22rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.list_left {
+  display: flex;
+}
+
+.list_left image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+  margin-top: 7rpx;
+}
+
+.list_left text {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.order_bill .right image {
+  width: 15rpx;
+  height: 23rpx;
+}
+
+.book_hotel {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,88 @@
+<!-- <view class="shop df">
+	<view class="sh_dingsh" bind:tap="navigateToDetail">
+		<view>订单号：{{order.order_num}}</view>
+		<view wx:if='{{order.order_status==1}}' class="redWord">待付款</view>
+		<view wx:if='{{order.order_status==2}}' class="redWord">待发货</view>
+		<view wx:if='{{order.order_status==8}}' class="redWord">交易成功</view>
+		<view wx:if='{{order.order_status==6}}' class="redWord">交易失败</view>
+		<view wx:if='{{order.order_status==4}}' class="redWord">待评价</view>
+<view wx:if='{{order.order_status==5}}' class="redWord">已退款</view> 
+	 <view wx:if='{{order.order_status==3}}' class="redWord">待收货</view>
+		<view wx:if='{{order.order_status==7}}' class="redWord">交易完成</view>
+			<view wx:if='{{order.order_status==5&&order.refund_status}}' class="redWord">{{order.refund_status}}</view>
+	</view>
+	<view class="df_1" bind:tap="navigateToDetail">
+		<image class="sh_slt" src="{{order.main_images}}"></image>
+		<view class="sp_text">
+			<navigator url="../index/detail?productId={{order.pid}}" hover-class="changestyle">
+				<view class="sp_tit ovh1">{{order.product[0].title}}</view>
+			</navigator>
+			<view class="sp_neb">¥ {{order.product[0].price}} </view>
+			<view class="sp_procoubt"> ×{{order.product[0].num}}</view>
+			<view class="sp_jjsp">共{{order.nums}}件商品</view>
+			<view class="sp_jg">合计<text style="color:#333333;font-size:26rpx" >￥{{order.total}}</text></view>
+		</view>
+	</view>
+	<view class="flex">
+		<slot></slot>
+	</view> 
+
+</view> -->
+
+<view class='allOrder'>
+	<view class='allOrder_header' bind:tap="navigateToDetail">
+		<view class='allOrder_header_left'>
+			<view class='waring' wx:if='{{order.order_type==1}}'>自提</view>
+			<view class='waring' wx:if='{{order.order_type==2}}'>物流</view>
+			<view class='waring' wx:if='{{order.order_type==3}}'>预订</view>
+			<view>订单号： {{order.order_num}}</view>
+		</view>
+		<block wx:if='{{order.order_type==1}}'>
+			<view class='order_status' wx:if='{{order.order_status==1}}'>待付款</view>
+			<view class='order_status' wx:if='{{order.order_status==2}}'>未自提</view>
+			<view class='order_status' wx:if='{{order.order_status==3}}'>待收货</view>
+			<view class='order_status' wx:if='{{order.order_status==4}}'>待评价</view>
+			<view class='order_status' wx:if='{{order.order_status==5}}'>退款</view>
+			<view class='order_status' wx:if='{{order.order_status==6}}'>订单取消</view>
+			<view class='order_status grren' wx:if='{{order.order_status==7}}'>已完成</view>
+		</block>
+		<block wx:if='{{order.order_type==2}}'>
+			<view class='order_status' wx:if='{{order.order_status==1}}'>待付款</view>
+			<view class='order_status' wx:if='{{order.order_status==2}}'>待发货</view>
+			<view class='order_status' wx:if='{{order.order_status==3}}'>待收货</view>
+			<view class='order_status' wx:if='{{order.order_status==4}}'>待评价</view>
+			<view class='order_status' wx:if='{{order.order_status==5}}'>退款</view>
+			<view class='order_status' wx:if='{{order.order_status==6}}'>订单取消</view>
+			<view class='order_status grren' wx:if='{{order.order_status==7}}'>交易完成</view>
+		</block>
+		<block wx:if='{{order.order_type==3}}'>
+			<view class='order_status' wx:if='{{order.order_status==1}}'>待付款</view>
+			<view class='order_status grren' wx:if='{{order.order_status==2}}'>已预订</view>
+			<view class='order_status' wx:if='{{order.order_status==3}}'>待收货</view>
+			<view class='order_status' wx:if='{{order.order_status==4}}'>待评价</view>
+			<view class='order_status' wx:if='{{order.order_status==5}}'>退款</view>
+			<view class='order_status' wx:if='{{order.order_status==6}}'>订单取消</view>
+			<view class='order_status grren' wx:if='{{order.order_status==7}}'>已完成</view>
+		</block>
+
+	</view>
+	<!--中间部分-->
+	<block wx:for="{{order.product}}" wx:key='index'>
+		<view class='allOrder_middle' bind:tap="navigateToDetail">
+			<image src="{{item.main_images}}"></image>
+			<view class='allOrder_middle_info'>
+				<view class='title'>{{item.title}} </view>
+				<view class='price'>￥{{item.price}}</view>
+			</view>
+			<view class='nums' wx:if='{{item.num}}'>X {{item.num}}</view>
+		</view>
+	</block>
+	<!---底部部分-->
+	<view class='allOrdr_bottom'>
+		<view class='all_price' wx:if='{{order.nums}}'>共{{order.nums}}件商品 合计： <text>￥{{order.total}}</text> </view>
+		<view class='all_price' wx:else>共1件商品 合计： <text>￥{{order.total}}</text> </view>
+		<view class='btn'>
+			<slot></slot>
+		</view>
+	</view>
+</view>

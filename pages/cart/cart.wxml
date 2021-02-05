@@ -1,0 +1,52 @@
+<view wx:if="{{!hasList}}" class="cart_bg">
+	<view class="cart_bgcen">
+		<image src="../static/images/nogoods.png"></image>
+		<view>暂无商品</view>
+	</view>
+</view>
+<!-- 订单 -->
+<!-- <scroll-view scroll-y> -->
+	<view class='order_container'>
+		<block wx:if="{{hasList}}" wx:for="{{carts}}" wx:key="id">
+		<scroll-view scroll-y="{{false}}">
+			<view class="order" data-index="{{index}}" bind:touchstart="touchstart" bind:touchmove="touchmove" bind:touchend="touchend" style="transform:translateX({{item.left}}rpx)">
+				<checkbox-group bindchange="checkboxChange" data-index="{{index}}" class="order_radio"><label>
+						<checkbox value="{{item.id}}" checked="{{item.selected}}"></checkbox>
+					</label></checkbox-group>
+				<image class="order_shopimg" src="{{item.image}}" data-id="{{item.id}}" catchtap="gotodetail"></image>
+				<view class="order_sku">
+					<!-- 标题 -->
+					<text class="order_title" >{{item.title}}{{item.net_content}} </text>
+					<!-- 活动名称 -->
+					<!-- 用于sku的点击事件 -->
+					<!-- <text class="order_activity" bindtap="toggleDialog">{{item.activity}}</text> -->
+					<!-- <text class="order_activity">{{item.activity}}</text> -->
+					<!-- 单价 -->
+					<text class="order_price">￥{{item.price}} </text>
+				</view>
+				<!-- 加减 -->
+				<view class="stepper">
+					<text data-index="{{index}}" data-key="minus" class="{{minusStatus}}" bind:tap="bindModifyQuantity">-</text>
+					<input data-index="{{index}}" type="number" bindblur="bindManual" value="{{item.num}}" />
+					<text data-index="{{index}}" data-key="add" class="normal" bind:tap="bindModifyQuantity">+</text>
+				</view>
+				<view class="del-btn" data-id="{{item.id}}" bindtap="scrollDel">删除</view>
+			</view> 
+			</scroll-view>
+		</block>
+		<view class="z_wei"></view>
+	</view>
+<!-- </scroll-view> -->
+<!-- 结算 -->
+<view class="cart_xf" wx:if='{{hasList}}'>
+	<checkbox-group bindchange="checkboxChangeAll" class="checked"><label>
+			<checkbox class="cart_xf_qx" checked="{{selectAllStatus}}">全选</checkbox>
+		</label></checkbox-group>
+	<text class="allDel" bindtap="deleteList" wx:if='{{selectAllStatus}}' data-index="{{index}}">删除</text>
+  <view class='alldel_middele'>
+	<view class="cart_xf_total" >总计:  <text class="cart_xf_jiage" >￥{{totalPrice}}</text> </view>
+ 	<!-- <view class='desc'>优惠金额：3：00</view> -->
+   </view>
+	<view bindtap="tosettlement" class="settlement">去结算</view>
+</view>
+

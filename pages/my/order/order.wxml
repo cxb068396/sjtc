@@ -1,0 +1,215 @@
+<!--index.wxml-->
+<view class="swiper-tab">
+	<view class="swiper-tab-list {{currentTab==0 ? 'ons' : ''}}" data-current="0" bindtap="swichNav">全部</view>
+	<view class="swiper-tab-list {{currentTab==1 ? 'ons' : ''}}" data-current="1" bindtap="swichNav">自提</view>
+	<view class="swiper-tab-list {{currentTab==2 ? 'ons' : ''}}" data-current="2" bindtap="swichNav">物流</view>
+	<view class="swiper-tab-list {{currentTab==3 ? 'ons' : ''}}" data-current="3" bindtap="swichNav">预订</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height: {{winHeight?winHeight+'px':'auto'}}"
+	bindchange="bindChange">
+	<!-- 全部 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}" bindscrolltolower="scrollbot">
+			<view class='noaddress' wx:if='{{allOrderList.length<0}}'>
+				<image src="../../static/images/no_order.png"></image>
+				<view class='tishi'>暂无订单</view>
+			</view>
+			<block wx:for="{{allOrderList}}" wx:key='index'>
+				<order-item order="{{item}}">
+					<!-- 自提的按钮 -->
+					<block wx:if='{{item.order_type==1}}'>
+						<block wx:if='{{item.order_status==1}}'>
+							<view class='left_btn' bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+						</block>
+						<block wx:if='{{item.order_status==2}}'>
+							<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}' >取消订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==4}}'>
+							<view class='left_btn on' bindtap="goAssess" data-id="{{item.id}}" data-type='{{item.order_type}}' data-info='{{item.product}}'>待评价</view>
+						</block>
+						<block wx:if='{{item.order_status==6}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==7}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+					</block>
+					<!-- 物流的按钮 -->
+					<block wx:if='{{item.order_type==2}}'>
+						<block wx:if='{{item.order_status==1}}'>
+							<view class='left_btn' bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+						</block>
+						<block wx:if='{{item.order_status==2}}'>
+							<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==3}}'>
+							<view class='left_btn' bindtap="goLogistics" data-id="{{item.id}}" >查看物流</view>
+							<view class='left_btn on' bindtap="recOrder" data-id='{{item.id}}'>确认收货</view>
+						</block>
+						<block wx:if='{{item.order_status==4}}'>
+							<view class='left_btn' bindtap="goLogistics" data-id="{{item.id}}" >查看物流</view>
+							<view class='left_btn on' bindtap="goAssess" data-id="{{item.id}}" data-type='{{item.order_type}}' data-info='{{item.product}}'>待评价</view>
+						</block>
+						<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==6}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+						<block wx:if='{{item.order_status==7}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+					</block>
+					<!-- 预订的按钮 -->
+					<block wx:if='{{item.order_type==3}}'>
+						<block wx:if='{{item.order_status==1}}'>
+							<view class='left_btn' bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+						</block>
+						<block wx:if='{{item.order_status==2}}'>
+							<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+							<view class='left_btn on' bindtap="goarrival"  data-id='{{item.id}}'>已到店</view>
+						</block>
+						<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+						<block wx:if='{{item.order_status==7}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+						<block wx:if='{{item.order_status==6}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+					</block>
+				</order-item>
+			</block>
+		</scroll-view>
+	</swiper-item>
+	<!-- 自提 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}" bindscrolltolower="scrollbot1">
+			<view class='noaddress' wx:if='{{ziTiList.length<0}}'>
+				<image src="../../static/images/no_order.png"></image>
+				<view class='tishi'>暂无订单</view>
+			</view>
+			<block wx:for="{{ziTiList}}" wx:key='index'>
+				<order-item order="{{item}}">
+					<block wx:if='{{item.order_status==1}}'>
+						<view class='left_btn' bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+					</block>
+					<block wx:if='{{item.order_status==2}}'>
+						<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+					</block>
+					<block wx:if='{{item.order_status==4}}'>
+							<view class='left_btn on' bindtap="goAssess" data-id="{{item.id}}" data-type='{{item.order_type}}' data-info='{{item.product}}'>待评价</view>
+						</block>
+					<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+					<block wx:if='{{item.order_status==6}}'>
+						<view class='left_btn'  bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}' >删除订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+					</block>
+					<block wx:if='{{item.order_status==7}}'>
+						<view class='left_btn'  bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}' >删除订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+					</block>
+				</order-item>
+			</block>
+		</scroll-view>
+	</swiper-item>
+	<!-- 物流 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}" bindscrolltolower="scrollbot2">
+			<view class='noaddress' wx:if='{{wuLiuList.length<0}}'>
+				<image src="../../static/images/no_order.png"></image>
+				<view class='tishi'>暂无订单</view>
+			</view>
+			<block wx:for="{{wuLiuList}}" wx:key='index'>
+				<order-item order="{{item}}">
+					<block wx:if='{{item.order_status==1}}'>
+						<view class='left_btn' bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+					</block>
+					<block wx:if='{{item.order_status==2}}'>
+						<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+					</block>
+					<block wx:if='{{item.order_status==3}}'>
+						<view class='left_btn' bindtap="goLogistics" data-id="{{item.id}}" >查看物流</view>
+						<view class='left_btn on' bindtap="recOrder" data-id='{{item.id}}'>确认收货</view>
+					</block>
+					<block wx:if='{{item.order_status==4}}'>
+							<view class='left_btn' bindtap="goLogistics" data-id="{{item.id}}" >查看物流</view>
+							<view class='left_btn on' bindtap="goAssess" data-id="{{item.id}}" data-type='{{item.order_type}}' data-info='{{item.product}}'>待评价</view>
+						</block>
+					<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+					<block wx:if='{{item.order_status==6}}'>
+						<view class='left_btn '  bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+					</block>
+					<block wx:if='{{item.order_status==7}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+							<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>再次购买</view>
+						</block>
+				</order-item>
+			</block>
+		</scroll-view>
+	</swiper-item>
+	<!-- 预订 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}" bindscrolltolower="scrollbot3">
+			<view class='noaddress' wx:if='{{bookList.length<0}}'>
+				<image src="../../static/images/no_order.png"></image>
+				<view class='tishi'>暂无订单</view>
+			</view>
+			<block wx:for="{{bookList}}" wx:key='index'>
+				<order-item order="{{item}}">
+					<block wx:if='{{item.order_status==1}}'>
+						<view class='left_btn'  bindtap="closeOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on' bindtap="buyNow" data-id='{{item.id}}' data-status='{{item.order_status}}' data-type='{{item.order_type}}'>立即支付</view>
+					</block>
+					<block wx:if='{{item.order_status==2}}'>
+						<view class='left_btn' bindtap="cancelOrder" data-id='{{item.id}}' data-num='{{item.order_num}}'>取消订单</view>
+						<view class='left_btn on'  bindtap="goarrival"  data-id='{{item.id}}'>已到店</view>
+					</block>
+					<block wx:if='{{item.order_status==5}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+					<block wx:if='{{item.order_status==6}}'>
+							<view class='left_btn' bindtap='orderAbrogate' data-id='{{item.id}}' data-num='{{item.order_num}}'>删除订单</view>
+						</block>
+					<block wx:if='{{item.order_status==7}}'>
+						<view class='left_btn'  bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+					</block>
+					<block wx:if='{{item.order_status==6}}'>
+						<view class='left_btn'  bindtap='orderAbrogate' data-id='{{item.id}}'  data-num='{{item.order_num}}'>删除订单</view>
+					</block>
+				</order-item>
+			</block>
+		</scroll-view>
+
+
+	</swiper-item>
+</swiper>
+
+<!--弹框-->
+<model></model>

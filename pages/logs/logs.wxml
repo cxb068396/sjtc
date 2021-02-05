@@ -1,0 +1,24 @@
+<view wx:if="{{ishsow}}" class="sg_center">
+	<view class="sg_header">
+		<image src="../static/images/detail_icon.png"></image>
+		<view class="sg_hezi"><text>诗酒天成 自营电商</text> 申请</view>
+		<view class="sg_zitwo">获取你的昵称、头像、地区及性别</view>
+	</view>
+	<view class="sg_xinxi">
+		微信个人信息
+	</view>
+	<view   class="sg_xiyong">
+		使用其头像和昵称
+	</view>
+	<view class="sg_oyay">
+		<button class='authBtn' bindtap="tiindex" style="color:#333;background: #f2f2f2;" type='primary'>取消</button>
+		<button class='authBtn' style="color: #ffffff;background: #33cc66;" type='primary' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>允许</button>
+	</view>
+</view>
+
+<view wx:if="{{iShsow}}"  class="aa"> </view>
+
+
+
+
+

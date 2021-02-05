@@ -1,0 +1,110 @@
+<!-- 轮播图 -->
+<scroll-view scroll-y>
+	<view class="swiperContainer">
+		<swiper class='v115-class-goods-scroll'  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{imgUrls}}" wx:key='index'>
+				<swiper-item>
+					<image src="{{baseUrl}}{{item}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="detail">
+		<text class="price">{{detailInfo.price}}</text>
+		<view class="title">{{detailInfo.name}}</view>
+	</view>
+	<!-- 商品的标题和简介 -->
+	<view class="shop_box">
+		<view class="shop_brief">{{detailInfo.description}}富含微量元素硒，有效补充人体微量元素，增强人体免疫力与代谢功能。</view>
+		<view class="shop_pinpai">
+			<view class="pinpai_k">品牌</view>
+			<view class="pinpai_t">源膳</view>
+		</view>
+		<view class="shop_pinpai">
+			<view class="pinpai_k">包装</view>
+			<view class="pinpai_t">瓶装</view>
+		</view>
+	</view>
+	<view class="separate01"></view>
+	<!-- 配送优惠 -->
+	<view class="shop_delivery">
+		<view class="shop_delivery_one">配送</view>
+		<view class="shop_delivery_two">{{detailInfo.logistics}}</view>
+	</view>
+
+	<view bindtap="discount" class="shop_delivery shop_deli">
+		<view class="shop_delivery_one">优惠</view>
+		<!-- <view class="shop_delivery_two" bindtap="goDrawCoupon"><text>领取新人优惠券</text> <text>￥3</text></view> -->
+		<view class="shop_delivery_two" bindtap="goDrawCoupon"><text>领取优惠券</text></view>
+		<image class="shop_delivery_img" src='../../static/images/more_right.png'></image>
+	</view>
+
+	<!-- <view class="separate">
+		<block wx:for="{{imgUrls}}" wx:for-item="item"> -->
+	<!-- <image class="shop_timg" src="{{item}}"></image> -->
+	<!-- </block>
+	</view> -->
+	<view class="shop_jies">
+		<view class="richtext">
+				<view>——</view>
+				<view>商品详情</view>
+				<view>——</view>
+		 </view>
+		<import src="../../../lib/wxParse/wxParse.wxml" />
+		<template is="wxParse" data="{{wxParseData: desc.nodes}}" />
+	</view>
+	
+</scroll-view>
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+	<image bindtap="toCar" bindtap="toCar" src="../../static/tabbar/cart.png" />
+	<view class="line_nav" wx:if="{{cartNum!=0}}">{{cartNum}}</view>
+	<view class="line_nav_two">
+		<view style="width: 180rpx;height: 60rpx;" class="button-green" bindtap="addCar" data-way="add" >加入购物车</view>
+		<view style="width: 180rpx;height: 60rpx;" class="button-red" bindtap="immeBuy" data-way="buy">立即购买</view>
+	</view>
+</view>
+<view>
+</view>
+<!--商品规格开始-->
+	<view class="wrap" wx:if='{{showSku}}'>
+		<!--遮罩层  -->
+		<view class="shade">
+			<!--面板内容  -->
+			<view class="conts">
+				<view class='header'>
+					<view class='left'>
+						<image class='img' src='{{baseUrl}}{{selectSku.img}}'></image>
+						<view class='content'>
+							<view class='price'>￥{{selectSku.sell_price}}</view>
+							<view class='num'>库存 {{selectSku.inventory}}</view>
+						</view>
+					</view>
+					<view class='right' bindtap="close">
+						<image src="../../static/images/close.png"></image>
+					</view>
+				</view>
+				<view class='middle' wx:if='{{skus.length>0}}'>
+					<view class='title'>规格</view>
+					<view class='skus'>
+				  	<block wx:for='{{skus}}' wx:key='index'>
+						<view class='sku {{currentIndex==index?"on":""}}' data-index='{{index}}' bindtap="sleectSku">{{item}}</view>
+						</block>
+			
+					</view>
+				</view>
+       <view class='bottom'>
+       <view class='addnum'>
+       <view class='left'>购买数量</view>
+       	<view class="stepper">
+					<text data-index="{{index}}" data-key="minus" class="minusStatus" bindtap="bindMinus">-</text>
+					<input data-index="{{index}}" type="number" bindblur="bindManual" value="{{num}}" />
+					<text data-index="{{index}}" data-key="add" class="normal" bindtap="bindAdd">+</text>
+       </view>
+       </view>
+       <view class='btn' bindtap="confirm">确认</view>
+       </view>
+			</view>
+		</view>
+	</view>
+	<!--商品规格结束-->

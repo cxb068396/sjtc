@@ -1,0 +1,135 @@
+<view class='index_containner'>
+	<!--搜索栏start-->
+	<view class='input_search'>
+		<view class="weui-search-bar">
+			<view class="weui-search-bar__form">
+				<!-- 搜索框 -->
+				<navigator class="weui-search-bar__box" url="/pages/index/search/search" hover-class="none">
+					<image bindtap='a' class="weui-icon-search_in-box" src="../static/images/search.png"></image>
+					<input type="text" class="weui-search-bar__input" placeholder="请输入关键词搜索" disabled='true' />
+				</navigator>
+			</view>
+		</view>
+	</view>
+	<!--搜索栏end-->
+	<!--轮播图start-->
+	<view class='carousel'>
+		<view class="cenlun">
+			<!--轮播图-->
+			<swiper class='lunbo v115-class-goods-scroll' previous-margin='0px' indicator-dots='true' autoplay='true' interval='4000'>
+				<block wx:for='{{bannars}}' wx:key='index'>
+					<swiper-item>
+						<image src='{{item.img}}' bindtap="go_detail_catagory" data-type='{{item.cor_type}}' data-id='{{item.cor_id}}'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+	<!--轮播图end-->
+
+	<!--分类start-->
+	<view class='category'>
+		<block wx:for='{{category}}' wx:key='index'>
+			<view class='cate' bindtap="go_detail_catagory" data-type='{{item.cor_type}}' data-id='{{item.cor_id}}'>
+				<image src="{{item.img}}"></image>
+				<view class='title'>{{item.title}}</view>
+			</view>
+		</block>
+	</view>
+	<!--分类end-->
+	<!--默认酒品start-->
+	<view class='recommend' wx:if='{{wineList.length>0}}'>
+		<view class='content'>
+			<block wx:for='{{wineList}}' wx:key='index'>
+				<view class='content-item' >
+					<image data-id='{{item.id}}' bindtap="goToDetail" src="{{item.img}}" class="slide-image" mode='scaleToFill' />
+					<view class='title'>{{item.name}}{{item.net_content}}</view>
+					<view class='title_bottom'>
+						<view class='left'>
+							<view class='sell-price'>￥{{item.sell_price}}</view>
+							<view class='opening-price'>￥{{item.opening_price}}</view>
+						</view>
+						<view class='right' bindtap="addShopCart" data-id='{{item.id}}'>
+							<image src="../static/images/add.png"></image>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<!--默认酒品end-->
+
+	<!--推荐酒品start-->
+	<view class='recommend' wx:if='{{recommend.length>0}}'>
+		<view class='recommend_title'>
+			<view class="left">推荐酒品</view>
+			<view>
+				<view class='right' bindtap="goCategory">
+					<view>更多</view>
+					<image src='../static/images/more.png'></image>
+				</view>
+			</view>
+		</view>
+		<view class='content'>
+			<block wx:for='{{recommend}}' wx:key='index'>
+				<view class='content-item' >
+					<image src="{{item.img}}" data-id='{{item.id}}' bindtap="goToDetail" class="slide-image" mode='scaleToFill' />
+					<view class='title'>{{item.name}}{{item.net_content}}</view>
+					<view class='title_bottom'>
+						<view class='left'>
+							<view class='sell-price'>￥{{item.sell_price}}</view>
+							<view class='opening-price'>￥{{item.opening_price}}</view>
+						</view>
+						<view class='right' bindtap="addShopCart" data-id='{{item.id}}'>
+							<image src="../static/images/add.png"></image>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<!--推荐酒品end-->
+	<!--热卖酒品start-->
+	<view class='recommend' wx:if='{{hostList.length>0}}'>
+		<view class='recommend_title'>
+			<view class="left">热卖酒品</view>
+			<view>
+				<view class='right' bindtap="goCategory">
+					<view>更多</view>
+					<image src='../static/images/more.png'></image>
+				</view>
+			</view>
+		</view>
+		<view class='content'>
+			<block wx:for='{{hostList}}' wx:key='index'>
+				<view class='content-item'>
+					<image src="{{item.img}}" data-id='{{item.id}}' bindtap="goToDetail" class="slide-image" mode='scaleToFill' />
+					<view class='title'>{{item.name}}{{item.net_content}}</view>
+					<view class='title_bottom'>
+						<view class='left'>
+							<view class='sell-price'>￥{{item.sell_price}}</view>
+							<view class='opening-price'>￥{{item.opening_price}}</view>
+						</view>
+						<view class='right' bindtap="addShopCart" data-id='{{item.id}}'>
+							<image src="../static/images/add.png"></image>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<!--热卖酒品end-->
+</view>
+
+<view class="wrap" wx:if='{{isShow}}'>
+	<!--遮罩层  -->
+	<view class="shade">
+		<!--面板内容  -->
+		<view class='contes'>
+			<image src="../static/images/newCoupon.png"></image>
+			<view class='price'>￥{{coupon_price}}</view>
+			<view class='userBtn' bindtap="close"></view>
+			<view class='closeBtn' bindtap="close"></view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/agreement/register/register",
+    "pages/my/agreement/secret/secret",
+    "pages/index/search/search",
+    "pages/index/detail/detail",
+    "pages/cart/cart",
+    "pages/cart/accounts/accounts",
+    "pages/cart/pay/pay",
+    "pages/cart/transaction/transaction",
+    "pages/category/category",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/my/person/person",
+    "pages/my/order/order",
+    "pages/my/order/orderDetail/orderDetail",
+    "pages/my/order/assess/assess",
+    "pages/my/order/logistics/logistics",
+    "pages/my/person/address/address",
+    "pages/my/person/editAddress/editAddress",
+    "pages/my/person/bjAddress/bjAddress",
+    "pages/my/member/member",
+    "pages/my/coupon/coupon",
+    "pages/my/coupon/drawCoupon/drawCoupon",
+    "pages/my/person/payPassword/payPassword",
+    "pages/my/person/restPassword/restPassword",
+    "pages/my/person/note/note",
+    "pages/my/setForget/setForget",
+    "pages/my/invoice/invoice",
+    "pages/my/invoice/ordering/ordering",
+    "pages/my/invoice/billing/billing",
+    "pages/my/invoice/ivpayable/ivpayable",
+    "pages/my/invoice/ivpayable/addpayable/addpayable",
+    "pages/my/invoice/ivrecords/ivrecords",
+    "pages/my/invoice/binformation/binformation",
+    "pages/my/invoice/ivpayable/editpayable/editpayable",
+    "pages/my/wineTasting/wineTasting",
+    "pages/my/wineBook/wineBook",
+    "pages/my/invoice/birecharge/birecharge",
+    "pages/my/setting/setting",
+    "pages/my/setting/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#BD4044",
+    "navigationBarTitleText": "诗酒天成",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333333",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/static/tabbar/index.png",
+        "selectedIconPath": "pages/static/tabbar/index_on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "pages/static/tabbar/category.png",
+        "selectedIconPath": "pages/static/tabbar/category_on.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "pages/static/tabbar/cart.png",
+        "selectedIconPath": "pages/static/tabbar/cart_on.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "pages/static/tabbar/my.png",
+        "selectedIconPath": "pages/static/tabbar/my_on.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

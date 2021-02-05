@@ -1,0 +1,315 @@
+.index_containner {
+  background-color: #F6F6F6;
+}
+
+.input_search {
+  width: 100%;
+  height: 180rpx;
+  background-color: #BD4044;
+  position: relative;
+}
+
+
+.weui-search-bar {
+  position: relative;
+  padding: 8rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+}
+
+
+.weui-icon-search_in-box {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 30px;
+  background: #FFFFFF;
+  border: 1rpx solid #FFFFFF;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+/* 轮播图 */
+.carousel {
+  position: relative;
+
+}
+
+.lunbo {
+  width: 710rpx;
+  height: 400rpx;
+  position: absolute;
+  top: -100rpx;
+  left: 20rpx;
+  z-index:999
+}
+
+.lunbo image {
+  width: 100%;
+  height: 320rpx;
+  border-radius: 10rpx;
+}
+
+.cenlun {
+  position: relative;
+  width: 100%;
+  height: 250rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.cenlun:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15rpx solid #BD4044;
+  border-left: 25rpx solid transparent; 
+  top:0;
+  left: 0;
+  
+}
+.cenlun:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 15rpx solid #BD4044;
+  border-right: 25rpx solid transparent; 
+  top:0;
+  right: 0;
+  
+}
+
+/* 轮播图指示点样式 */
+.v115-class-goods-scroll .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 40rpx;
+}
+
+.v115-class-goods-scroll .wx-swiper-dot {
+  width: 28rpx;
+  height: 8rpx;
+  display: inline-flex;
+  margin-left: 10rpx;
+  justify-content: space-between;
+}
+
+.v115-class-goods-scroll .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(238, 238, 238, .5);
+  border-radius: 6rpx;
+
+}
+
+.v115-class-goods-scroll .wx-swiper-dot-active::before {
+  background: #BD4044;
+}
+
+/*分类*/
+.category {
+  background-color: #fff;
+  padding: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25rpx;
+}
+
+.cate {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.cate image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.cate .title {
+  color: #666;
+  font-size: 28rpx;
+  width: 160rpx;
+  text-align: center;
+  text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}
+
+/*推荐酒品*/
+.recommend {
+  background-color: #F6F6F6;
+  padding: 10rpx;
+}
+
+.recommend_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15rpx;
+  align-items: center;
+}
+
+.recommend_title .left {
+  color: #333;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.recommend_title .right {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.recommend_title .right view {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 5rpx;
+}
+
+.recommend_title .right image {
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-item {
+  width: 45%;
+  height: 445rpx;
+  background-color: #fff;
+  margin: 18rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.content-item .title {
+  font-size: #333;
+  font-size: 24rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+  margin-top: 5rpx;
+}
+
+.title_bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx 10rpx 20rpx;
+}
+
+.title_bottom .left {
+  display: flex;
+}
+
+.left .sell-price {
+  font-size: 36rpx;
+  color: #BD4044;
+  font-weight: 600;
+  margin-right: 10rpx;
+}
+
+.left .opening-price {
+  font-size: 20rpx;
+  color: #999999;
+  text-decoration: line-through;
+  align-self: flex-end;
+  margin-bottom: 5rpx;
+}
+
+.right image {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+/*商品规格样式*/
+.wrap{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.shade{
+  width: 100%;
+  height: 100%;
+  top:0;   
+  background:rgba(0,0,0,0.5);   
+  overflow: hidden;   
+  /*要显示在wrap的上面 */   
+  z-index: 999;   
+ position: fixed;
+}
+.contes{
+  position: relative;
+}
+.contes image{
+  width: 713rpx;
+  height: 791rpx;
+}
+
+.contes .price{
+  position: absolute;
+  width:440rpx;
+  bottom: 280rpx;
+  left: 120rpx;
+  font-size: 80rpx;
+  color: #FFF6D9;
+ font-weight: bold;
+ text-align: center;
+}
+.contes .userBtn{
+  position: absolute;
+  width:160rpx;
+
+  bottom: 180rpx;
+  left: 300rpx;
+}
+.contes .closeBtn{
+  position: absolute;
+  width:60rpx;
+  height: 60rpx;
+  bottom: 80rpx;
+  left: 352rpx;
+}

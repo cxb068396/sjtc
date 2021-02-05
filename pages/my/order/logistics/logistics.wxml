@@ -1,0 +1,223 @@
+<view>
+<!-- 如果获取的信息中没有实质的地名信息，将一张空的地图显示在页面上，如果是有出现地名的话，将地名进行解析获取坐标然后在地图中规划路线 -->
+	<view wx:if='{{logisticsList.length>0}}'>
+		<!-- <map class='map' latitude='{{latitude}}' longitude='{{longitude}}' polyline="{{polyline}}" scale='{{scale}}' markers='{{markers}}' /> -->
+		<map id="myMap" class='map' longitude="{{longitude}}" latitude="{{latitude}}" scale='{{scale}}' polyline="{{polyline}}" markers="{{markers}}">
+		</map>
+	</view>
+	<view class="search_no" wx:else>
+		<view class="font_14">
+			<image class="scimg" src="../../../static/images/no_order.png"></image>
+		</view>
+		<text>暂无物流信息</text>
+	</view>
+	<!--头部显示物流状态-->
+	<view class='info' wx:if='{{logisticsList.length>0}}'>
+		<view class='logistic_header'>
+			<view class='logistic_info'>
+				<image src='{{shopImg?shopImg:"../../../static/images/ren_tou.png"}}'></image>
+        <!--手机的运单状态-->
+				<!-- <text wx:if='{{waybill_status==0}}'>等待快递员取件</text>
+ <text wx:if='{{waybill_status==1}}'>已揽件</text>
+ <text wx:if='{{waybill_status==2}}'>在途中</text>
+ <text wx:if='{{waybill_status==3}}'>已签收</text>
+ <text wx:if='{{waybill_status==4}}'>问题件</text> -->
+ <!--微信发货的订单状态-->
+				<text wx:if='{{logisticsList[0]["ActionType"]==100001}}'>揽件成功</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==100002}}'>揽件失败</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==100003}}'>分配业务员</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==200001}}'>运输阶段</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==300002}}'>开始派送</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==300003}}'>签收成功</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==300004}}'>签收失败</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==400001}}'>订单取消</text>
+				<text wx:if='{{logisticsList[0]["ActionType"]==400002}}'>订单滞留</text>
+			</view>
+		</view>
+
+		<!--物流信息-->
+
+		<view class='container_info'>
+			<view class="logistic_infos" style='height:{{height}}rpx;position:{{position}}'>
+				<!--头部-->
+				<view class='infos_header' wx:if='{{isNotEmpty}}'>
+					<view class='infos_des'>
+						<view class='infos_top'>
+							<image src='{{courier.pic}}'></image>
+							<view class='infos_top_detail'>
+								<view class='name'>{{courier.name}}</view>
+								<view class='phone' bindtap="tel">电话:{{courier.phone}} ></view>
+							</view>
+						</view>
+						<view class='infos_bot'>
+							<text>{{company_name}}物流</text>
+							<text>{{waybill_num}}</text>
+						</view>
+					</view>
+				</view>
+				<!--主体信息-->
+
+				<!-- 追踪 -->
+				<scroll-view class='logisit_info' wx:if='{{logisticsList.length>0}}' scroll-y='true' style='height:750rpx'>
+					<!-- 物流时间轴 -->
+					<view class='expressRecord'>
+
+
+						<!-- 顶部收货地址 -->
+						<view class='expressRecord-getAddress' wx:if='{{endAddress}}'>
+							<view class='expressRecord-top'>
+								<view class='getAddress-icon'>
+									收
+								</view>
+								<view class='getAddress-text'>[收货地址] {{endAddress}}</view>
+							</view>
+						</view>
+
+						<!-- 顶部收货地址半个时间轴线 -->
+						<view class='noReach-online-top-close' wx:if='{{logisticsList.length>0}}'></view>
+
+
+						<!-- 单个物流记录点时间轴：当前正在进行的物流状态 -->
+						<view class='expressRecord-single-close' wx:if='{{logisticsList.length>0}}'>
+
+							<!-- 左边子容器 -->
+							<view class='expressRecord-single-noReach-online-top-close'>
+								<!-- 正在进行的时间轴上半个时间线 -->
+								<view class='online-top-closing'></view>
+								<!-- 正在进行的时间轴点 -->
+								<view class='dot-closing'>
+									<image src='../../../static/images/yunshu.png'></image>
+								</view>
+								<!-- 正在进行的时间轴下半个时间线 -->
+								<view class='online-bottom' wx:if='{{logisticsList.length>1}}'></view>
+							</view>
+
+							<!-- 右边子容器 -->
+							<view class='getAddress-text'>
+								<!-- <view class='expressRecord-statusing'>运输中</view> -->
+								<view class='expressRecord-status-addressing'>{{logisticsList[0]['ActionMsg']}}</view>
+							</view>
+
+							<!-- 相对父级容器绝对定位的日期 -->
+							<view class='expressRecord-dating'>
+								<view class='expressRecord-date-text'>
+									{{logisticsList[0]['day']}}
+								</view>
+								<view class='expressRecord-date-time'>
+									{{logisticsList[0]['time']}}
+								</view>
+							</view>
+						</view>
+
+
+						<!-- 单个物流记录点时间轴：已经过去的物流状态 -->
+						<view wx:if='logList.length>0'>
+							<block wx:for='{{logList}}' wx:for-item='item' wx:key='item'>
+								<view class='expressRecord-single-close'>
+									<view class='expressRecord-single-noReach-online-top-close'>
+										<view class='online-top-close'></view>
+										<view class='dot-close'></view>
+										<view class='online-bottom'></view>
+									</view>
+
+									<view class='expressRecord-text'>
+										<view class='expressRecord-status'></view>
+										<view class='expressRecord-status-address'>{{item.ActionMsg}}</view>
+									</view>
+
+									<view class='expressRecord-date'>
+										<view class='expressRecord-date-text'>
+											{{item.day}}
+										</view>
+										<view class='expressRecord-date-time'>
+											{{item.time}}
+										</view>
+									</view>
+								</view>
+							</block>
+						</view>
+						<!-- <view class='expressRecord-single-close'>
+      <view class='expressRecord-single-noReach-online-top-close'>
+        <view class='online-top-close'></view>
+        <view class='dot-close'></view>
+        <view class='online-bottom'></view>
+      </view>
+ 
+      <view class='expressRecord-text'>
+        <view class='expressRecord-status'></view>
+        <view class='expressRecord-status-address'>湖北省孝感市汉川市公司 已打包</view>
+      </view>
+ 
+      <view class='expressRecord-date'>
+        <view class='expressRecord-date-text'>
+          昨天
+        </view>
+        <view class='expressRecord-date-time'>
+          14:37
+        </view>
+      </view>
+    </view> -->
+						<!--  
+    <view class='expressRecord-single-close'>
+      <view class='expressRecord-single-noReach-online-top-close'>
+        <view class='online-top-close'></view>
+        <view class='dot-close1'><image src='../../../static/icon/btn_daifa.png'></image></view>
+        <view class='online-bottom'></view>
+      </view>
+ 
+      <view class='expressRecord-text'>
+        <view class='expressRecord-status'>已揽件</view>
+        <view class='expressRecord-status-address'>湖北省孝感市汉川市公司 已收件</view>
+      </view>
+ 
+      <view class='expressRecord-date'>
+        <view class='expressRecord-date-text'>
+          昨天
+        </view>
+        <view class='expressRecord-date-time'>
+          14:17
+        </view>
+      </view>
+    </view> -->
+
+						<view class='expressRecord-single-close' wx:if='{{logisticsList.length>=2}}'>
+							<view class='expressRecord-single-noReach-online-top-close'>
+								<view class='online-top-close'></view>
+								<view class='dot-close1'>
+									<image src='../../../static/images/dabao.png'></image>
+								</view>
+								<!-- 起始位置，下半个时间轴线不用 -->
+								<view class='online-bottom-start'></view>
+							</view>
+
+							<view class='getAddress-text'>
+								<!-- <view class='expressRecord-status'>已发货</view> -->
+								<view class='expressRecord-status-address'>{{logisticsList[logisticsList.length-1]['ActionMsg']}}</view>
+							</view>
+
+							<view class='expressRecord-date'>
+								<view class='expressRecord-date-text'>
+									{{ logisticsList[logisticsList.length-1]['day']}}
+								</view>
+								<view class='expressRecord-date-time'>
+									{{ logisticsList[logisticsList.length-1]['time']}}
+								</view>
+							</view>
+						</view>
+					</view>
+
+				</scroll-view>
+
+			</view>
+			<view wx:if='{{isshow}}' class='get_btns'>
+				<view bindtap="getMore" class='moreInfo'>点击加载更多物流信息<image src="../../../static/images/more_bottom.png"></image>
+				</view>
+			</view>
+
+
+		</view>
+	</view>
+
+
+	<!--结束标签-->
+</view>

@@ -1,0 +1,26 @@
+<!--pages/my/setting/setting.wxml-->
+<view class="wrap">
+  <view class="zhanwei"></view>
+  <view class='order_bill'>
+		<view class='order_bill_list' bindtap="goForget">
+			<view class='list_left'>支付管理</view>
+			<view class='right'>
+				<image src="../../static/images/turnLeft.png"></image>
+			</view>
+		</view>
+		<view class='order_bill_list' bindtap="goOpinion">
+			<view class='list_left'>意见反馈</view>
+			<view class='right'>
+        <text>期待您的意见与建议</text>
+				<image src="../../static/images/turnLeft.png"></image>
+			</view>
+		</view>
+    <view class='order_bill_list' bindtap="goAbout">
+			<view class='list_left'>关于</view>
+			<view class='right'>
+        <text>关于诗酒天成</text>
+				<image src="../../static/images/turnLeft.png"></image>
+			</view>
+		</view>
+	</view>
+</view>

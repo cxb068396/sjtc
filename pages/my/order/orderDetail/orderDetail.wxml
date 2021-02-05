@@ -1,0 +1,400 @@
+<view class='pay_container'>
+	<view class='header_bgc'></view>
+	<view class='prompt'>
+		<view class='prompt_info'>
+			<!--显示物流或者自提的状态-->
+			<block wx:if='{{orderInfo.order_type==1}}'>
+				<block wx:if='{{orderInfo.order_status==1}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>订单提交成功，请尽快完成支付！</view>
+						<view class='info_time'>超时，订单将自动取消，计时：{{countdown}}</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==2}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>待自提</view>
+						<view class='info_time'>正在通知客户，等待取件。</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==3}}'>
+					<image src='../../../static/images/logist.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>待收货</view>
+						<view class='info_time'>7天后，系统会自动确认收货</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==5}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>退款</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==6}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>交易失败</view>
+						<view class='info_time'>取消支付</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==7}}'>
+					<image src='../../../static/images/success_green.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>交易成功</view>
+					</view>
+				</block>
+			</block>
+
+			<!--显示物流的状态-->
+			<block wx:if='{{orderInfo.order_type==2}}'>
+				<block wx:if='{{orderInfo.order_status==1}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>订单提交成功，请尽快完成支付！</view>
+						<view class='info_time'>超时，订单将自动取消，计时：{{countdown}}</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==2}}'>
+					<image src='../../../static/images/logist.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>待发货</view>
+						<view class='info_time'>正在通知快递客户，等待取件。</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==3}}'>
+					<image src='../../../static/images/logist.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>待收货</view>
+						<view class='info_time'>7天后，系统会自动确认收货</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==4}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>已收货</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==5}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>退款</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==6}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>交易失败</view>
+						<view class='info_time'>取消支付</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==7}}'>
+					<image src='../../../static/images/success_green.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>交易成功</view>
+					</view>
+				</block>
+			</block>
+
+			<!--显示预订的状态-->
+			<block wx:if='{{orderInfo.order_type==3}}'>
+				<block wx:if='{{orderInfo.order_status==1}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>订单提交成功，请尽快完成支付！</view>
+						<view class='info_time'>超时，订单将自动取消，计时：{{countdown}}</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==2}}'>
+					<image src='../../../static/images/success.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>已预订</view>
+						<view class='info_time'>您已成功预定品酒包厢</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==5}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>退款</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==6}}'>
+					<image src='../../../static/images/fail.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>交易失败</view>
+						<view class='info_time'>已取消支付</view>
+					</view>
+				</block>
+				<block wx:if='{{orderInfo.order_status==7}}'>
+					<image src='../../../static/images/success_green.png'></image>
+					<view class='prompt_info_right'>
+						<view class='info_top'>已完成</view>
+					</view>
+				</block>
+			</block>
+		</view>
+	</view>
+	<!-- 地址start -->
+	<view class='address' wx:if='{{order_type==2}}'>
+		<view class='img'>
+			<image src="../../../static/images/btn_position.png"></image>
+		</view>
+		<view class='address_info'>
+			<view class='address_info_top'>
+				<view class='name'>{{address.name}}</view>
+				<view class='mobile'>{{address.mobile}}</view>
+			</view>
+			<view class='address_bottom'>{{address.province}}{{address.city}}{{address.county}}{{address.area}}</view>
+		</view>
+	</view>
+	<!-- 地址end -->
+	<!---订单信息start--->
+	<view class='order_info'>
+		<!--头部-->
+		<view class='order_info_title'>
+			<text></text>
+			<view>订单信息</view>
+		</view>
+		<!--中间-->
+		<view wx:if='{{orderInfo.order_type==1||orderInfo.order_type==2}}'>
+			<block wx:for='{{product}}' wx:key='index'>
+				<view class='order_info_content'>
+					<view class='order_content'>
+						<image src='{{item.main_images}}'></image>
+						<view class='order_title'>
+							<view class='title'>{{item.title}}</view>
+							<view class='new'>{{item.description}}</view>
+							<view class='price'>
+								<view class='newprice'>￥{{item.price}}</view>
+								<!-- <view class='oldprice'>￥2000</view> -->
+							</view>
+						</view>
+						<view class="stepper">
+							x {{item.num}}
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+		<view wx:if='{{orderInfo.order_type==3}}'>
+			<view class='order_info_content'>
+				<view class='order_content'>
+					<image src='{{orderInfo.product.desk_image}}'></image>
+					<view class='order_title'>
+						<view class='title'>{{orderInfo.product.name}}</view>
+						<view class='new'>{{orderInfo.product.desk_name}}</view>
+						<view class='price'>
+							<view class='newprice'>￥{{orderInfo.product.price}}</view>
+							<!-- <view class='oldprice'>￥2000</view> -->
+						</view>
+					</view>
+					<view class="stepper">
+						x 1
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--底部-->
+		<view class='order_info_bottom'>
+			<view class='top'>
+				<view class='top_info'>
+					<view class='left'>订单总额</view>
+					<view class='right'>￥{{orderInfo.original_price}}</view>
+				</view>
+				<view class='top_info'>
+					<view class='left'>优惠劵抵扣</view>
+					<view class='right'>￥{{orderInfo.discounts}}</view>
+				</view>
+				<view class='top_info' wx:if='{{orderInfo.order_type==1||orderInfo.order_type==2}}'>
+					<view class='left'>邮寄费用</view>
+					<view class='right'>￥{{orderInfo.freight}}</view>
+				</view>
+			</view>
+			<view class='middle'>
+				<view class='middle_all'>
+					<view>实付金额:<text>￥{{orderInfo.total}}</text></view>
+				</view>
+			</view>
+			<view class='bottom'>
+				<view class='onther_info'>
+					<view>订单号：<text>{{orderInfo.order_num}}</text></view>
+				</view>
+				<view class='onther_info'>
+					<view>下单时间：<text>{{orderInfo.create_time}}</text></view>
+				</view>
+				<view class='onther_info'>
+					<view>订单备注：<text>{{orderInfo.remark?orderInfo.remark:'无'}}</text></view>
+				</view>
+			</view>
+			<block wx:if='{{orderInfo.pay_time}}'>
+				<view class='more' bindtap="loadMore" wx:if='{{isShowBtn}}'>
+					更多
+					<image src='../../../static/images/more_bottom.png'></image>
+				</view>
+				<block wx:if='{{loadMore}}'>
+					<view class='onther_info'>
+						<view>支付时间：<text>{{orderInfo.pay_time}}</text></view>
+					</view>
+					<view class='onther_info'>
+						<view>支付方式：<text>{{orderInfo.pay_type==1?'微信支付':'余额支付'}}</text></view>
+					</view>
+					<view class='onther_info'>
+						<view>交易单号：<text>{{orderInfo.pay_num}}</text></view>
+					</view>
+					<view class='onther_info'>
+						<view>交易完成时间：<text>{{orderInfo.pay_time}}</text></view>
+					</view>
+				</block>
+			</block>
+		</view>
+	</view>
+	<!---订单信息end--->
+	<view class='nums_time' wx:if='{{orderInfo.order_type==3}}'>
+		<view class='flex'>
+			<view>人数</view>
+			<view>{{orderInfo.product.num}}</view>
+		</view>
+		<view class='flex'>
+			<view>到店时间</view>
+			<view>{{orderInfo.product.reserve_date}} {{orderInfo.product.arrival_time}}</view>
+		</view>
+	</view>
+
+	<!-- 支付方式start -->
+
+	<view class='order_pay_container' wx:if='{{order_status==1}}'>
+		<view class='pay_way'>
+			<view class='left'>
+				<image src="../../../static/images/wechat_pay.png"></image>
+				微信支付
+			</view>
+			<view class='right' bindtap="payWay" data-way='wechat'>
+				<image wx:if='{{wechatPay}}' src="../../../static/images/way_two.png"></image>
+				<image wx:else src="../../../static/images/way_one.png"></image>
+			</view>
+		</view>
+
+		<view class='pay_way'>
+			<view class='left'>
+				<image src="../../../static/images/yuer_pay.png"></image>
+				余额支付（{{balance}}）
+			</view>
+			<view class='right' bindtap="payWay" data-way='yuer'>
+				<image wx:if='{{wechatPay}}' src="../../../static/images/way_one.png"></image>
+				<image wx:else src="../../../static/images/way_two.png"></image>
+			</view>
+		</view>
+	</view>
+
+
+	<!-- 支付方式end -->
+</view>
+
+
+
+<view class='btn'>
+	<!--自提的按钮-->
+	<block wx:if='{{orderInfo.order_type==1}}'>
+		<block wx:if='{{orderInfo.order_status==1}}'>
+			<view class='cancel' bindtap="cancelOrder" data-num='{{orderInfo.order_num}}'>取消订单</view>
+			<view class='confirm' bindtap="goBuy">去支付</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==2}}'>
+			<view class='cancel' bindtap="orderCancel" data-num='{{orderInfo.order_num}}'>取消订单</view>
+			<view class='confirm' bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==3}}'>
+			<view class='confirm'>确认收货</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==4}}'>
+			<view class='confirm' bindtap="gotoAssess">待评价</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==7}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==5}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==6}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+	</block>
+	<!--物流的按钮-->
+	<block wx:if='{{orderInfo.order_type==2}}'>
+		<block wx:if='{{orderInfo.order_status==1}}'>
+			<view class='cancel' bindtap="cancelOrder" data-num='{{orderInfo.order_num}}'>取消订单</view>
+			<view class='confirm' bindtap="goBuy">去支付</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==2}}'>
+			<view class='cancel' bindtap="orderCancel" data-num='{{orderInfo.order_num}}'>取消订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==3}}'>
+			<view class='cancel' bindtap="goLogistics">查看物流</view>
+			<view class='confirm' bindtap="recOrder" >确认收货</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==4}}'>
+			<view class='cancel' bindtap="goLogistics">查看物流</view>
+			<view class='confirm' bindtap="gotoAssess">待评价</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==5}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}' >删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==6}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}' >删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==7}}'>
+			<view class='cancel' bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}' >删除订单</view>
+			<view class='confirm'  bindtap='buyAgain'>再次购买</view>
+		</block>
+	</block>
+	<!--预订的按钮-->
+	<block wx:if='{{orderInfo.order_type==3}}'>
+		<block wx:if='{{orderInfo.order_status==1}}'>
+			<view class='cancel'  bindtap="cancelOrder" data-num='{{orderInfo.order_num}}' >取消订单</view>
+			<view class='confirm' bindtap="goBuy">去支付</view>
+		</block>
+		<block wx:if='{{orderInfo.order_status==2}}'>
+			<view class='cancel' bindtap="orderCancel" data-num='{{orderInfo.order_num}}'>取消订单</view>
+			<!-- <view class='confirm'>再次预订</view> -->
+		</block>
+		<block wx:if='{{orderInfo.order_status==5}}'>
+			<view class='cancel'  bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<!-- <view class='confirm' >再次预订</view> -->
+		</block>
+		<block wx:if='{{orderInfo.order_status==6}}'>
+			<view class='cancel'  bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<!-- <view class='confirm' >再次预订</view> -->
+		</block>
+		<block wx:if='{{orderInfo.order_status==7}}'>
+			<view class='cancel'  bindtap="orderAbrogate" data-num='{{orderInfo.order_num}}'>删除订单</view>
+			<!-- <view class='cancel'>去评价</view> -->
+			<!-- <view class='confirm' >再次预订</view> -->
+		</block>
+	</block>
+</view>
+
+<!-- 密码输入框 -->
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'><text>使用会员余额支付需要验证身份，验证通过后才可进行支付。</text></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{pwdVal.length>i}}'></text>
+            </view>
+        </view>
+        <view class='forget_pwd' catchtap='goNote'>忘记密码</view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>
+<model></model>

@@ -1,0 +1,62 @@
+<!--pages/my/invoice/binformation/binformation.wxml-->
+<view class="wrap">
+  <view class="zhanwei"></view>
+  <view class="index_top">
+    <view class="index_top_one">
+      <view class="top_text">发票类型</view>
+      <input class="top_container" type="text"  value="电子发票" bindinput="bindinputFapiao"></input>
+    </view>
+    <view class="index_top_one">
+      <view class="top_text">发票金额</view>
+      <input class="top_container" type="text" placeholder="请输入金额(￥500.00)" bindinput="bindinputprice" value="￥{{price}}" disabled="disabled"></input>
+    </view>
+    <view class="index_top_one"> 
+      <view class="top_text">开票方式</view>
+      <input class="top_container" type="text" placeholder="会员充值" wx:if="{{order == ''}}" data-methos="three"></input>
+      <view class="top_container_one" wx:else>
+        <view class="top_container_lineOne">
+          <image src="{{isChecked == false?'/pages/static/images/status01.png': '/pages/static/images/status02.png'}}" data-methos='one' bindtap="change"></image>
+          <text>商品分类</text>
+        </view>
+        <view class="top_container_lineOne" >
+          <image src="{{isChecked == true?'/pages/static/images/status01.png': '/pages/static/images/status02.png'}}" data-methos='two'  bindtap="change"></image>
+          <text>商品明细</text>
+        </view>
+      </view>
+    </view>
+    <view class="index_top_one">
+      <view class="top_text">发票抬头</view>
+      <view class="top_container_one">
+        <view class="top_container_lineOne">
+          <image src="{{oneChecked == false?'/pages/static/images/status01.png': '/pages/static/images/status02.png'}}" bindtap="changeOne" data-titleId="status01" data-type='one'></image>
+          <text>个人</text>
+        </view>
+        <view class="top_container_lineOne" >
+          <image src="{{oneChecked == true?'/pages/static/images/status01.png': '/pages/static/images/status02.png'}}" bindtap="changeOne" data-titleId="status02" data-type='two' data-paramsId="{{ided}}"></image>
+          <text>单位</text>
+        </view>
+      </view>
+    </view>
+    <view class="{{oneChecked == true?'show':'hide'}}">
+      <view class="index_top_one" bindtap="totaitou" data-page="biInformation">
+        <view class="top_text1">公司抬头</view>
+        <view class="top_text_bottom">
+          <input type="text" placeholder="必填" value="{{paramsTitle}}" disabled="disabled"></input>
+          <image src="/pages/static/images/turnLeft.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="{{oneChecked == true?'show':'hide'}}">
+      <view class="index_top_one">
+        <view class="top_text1">纳税人识别号</view>
+        <input class="top_containerss" type="text" placeholder="必填" value="{{paramsCode}}" disabled="disabled"></input>
+      </view>
+    </view>
+  </view>
+  <view class="zhanwei"></view>
+  <view class="index_bottom">
+    <view class="bottom_text">邮箱</view>
+    <input class="bottom_container" type="text" placeholder="请填写邮箱" placeholder-style="color:#666" value="{{paramsEmail}}" bindinput="bindinputEmail"></input>
+  </view>
+  <view class="index_footer" bindtap="toinfo">申请开票</view>
+</view>

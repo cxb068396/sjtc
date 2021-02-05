@@ -1,0 +1,41 @@
+<view class='person_container'>
+	<!--头部start-->
+	<view class='avatar'>
+		<view>头像</view>
+		<image src='{{avatar}}'></image>
+	</view>
+	<!-- 头部end -->
+	<!--中间内容start-->
+	<view class="person_info">
+		<view class='person_info_list'>
+			<view class='info_left'>用户名</view>
+			<view class='info_right'>
+				<view>{{username}}</view>
+				<image src='../../static/images/more_right.png'></image>
+			</view>
+		</view>
+		<view class='person_info_list'>
+			<view class='info_left'>性别</view>
+			<view class='info_right'>
+				<view>{{sex==1?'男':'女'}}</view>
+				<image src='../../static/images/more_right.png'></image>
+			</view>
+		</view>
+		<!-- <view class='person_info_list'>
+			<view class='info_left'>绑定手机</view>
+			<view class='info_right'>
+				<view>18368843089</view>
+			</view>
+		</view> -->
+		<view class='person_info_list' bindtap="gotoAddress">
+			<view class='info_left'>收货地址</view>
+			<view class='info_right'>
+				<image src='../../static/images/more_right.png'></image>
+			</view>
+		</view>
+				
+	</view>
+	<!--中间内容end-->
+
+	<view class='longout_btn' bindtap='loginOut'>退出登录</view>
+</view>

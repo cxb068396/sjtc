@@ -1,0 +1,26 @@
+<!--pages/my/invoice/ivpayable/editpayable/editpayable.wxml-->
+<view class="wrap">
+  <view class="zhanwei"></view>
+  <view class="index_top">
+    <view class="index_top_con">
+      <view class="top_con_left">发票抬头</view>
+      <input type="text" class="top_con_write" placeholder="必填" bindinput="bindinputTaitou" value="{{taitou}}"></input>
+    </view>
+    <view class="index_top_con">
+      <view class="top_con_left">纳税人识别号</view>
+      <input type="text" class="top_con_write" placeholder="必填" bindinput="bindinputCode" value="{{code}}"></input>
+    </view>
+    <view class="index_top_con">
+      <view class="top_con_left">邮箱地址</view>
+      <input type="text" class="top_con_write" placeholder="必填" bindinput="bindinputAddress" value="{{email}}"></input>
+    </view>
+    <view class="index_bottom_con">
+      <view class="top_con_left">默认抬头</view>
+      <switch class="top_con_switch" color="#BE4044" checked="{{is_default}}" bindchange="bindIsDefault"></switch>
+    </view>
+  </view>
+  <view class="index_footer">
+    <view class="index_footer_container" bindtap="toeditPayable">保存</view>
+  </view>
+</view>
+

@@ -1,0 +1,61 @@
+<!-- 名字 -->
+<view class="add_conter">
+	<view class="add_text">收件人：</view>
+  <input bindinput="bindinputName"  style="margin-left: 25rpx;" class="add_input" type="text" placeholder="请填写收件人姓名" placeholder-style="color:#cdcdcd" ></input>
+  <image src='../../../static/images/more_right.png'></image>
+</view>
+
+<!-- 电话 -->
+<view class="add_conter">
+	<view class="add_text">联系方式：</view>
+  <input bindinput="bindinputMobile" class="add_input" type="number" placeholder="请填写收件人电话" placeholder-style="color:#cdcdcd" ></input>
+  <image src='../../../static/images/more_right.png'></image>
+</view>
+<!-- 省市区 -->
+<view bindtap='select' class="add_conter">
+	<view class="add_text">所在地区：</view>
+  <text class="add_sf">{{areaInfo}}</text>
+ <view class='areaSelect'>
+  <text>请选择</text>
+   <image src='../../../static/images/more_right.png'></image>
+ </view>
+</view>
+<!-- 详细地址 -->
+<view class="add_contertwo">
+	<view class="add_texttwo">详细地址：</view>
+  <textarea  bindinput="bindinputAddress" class="add_textarea" placeholder-style="color:#cdcdcd" placeholder="如道路、门牌号、小区、楼栋号、单元室等" ></textarea> 
+</view>
+
+<!-- 默认 -->
+<view  class="add_conter">
+  <checkbox-group  bindchange="bindIsDefault"    class="order_radio" ><label><checkbox value="是否默认"></checkbox></label></checkbox-group>
+  <text class="add_mor">设置为默认</text>
+</view>
+
+<view class="address_to">
+   <view bindtap="toeaddres" class="address_tozi">保存</view>
+</view>
+
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+    <!-- 确认取消按钮 -->
+    <view class='btn'>
+        <text catchtap="cityCancel">取消</text>
+        <text style="float: right" catchtap="citySure">完成</text>
+    </view>
+    <!-- 选择地址 -->
+    <picker-view   class='cont' bindchange="cityChange" :value="{{value}}" wx:key="">
+    <!-- 省 -->
+        <picker-view-column >
+            <view wx:for="{{provinces}}" class="picker-item" wx:key="{{index}}"
+            >{{item.name}}</view>
+        </picker-view-column>
+<!-- 市 -->
+        <picker-view-column>
+            <view wx:for="{{citys}}" class="picker-item"  wx:key="index">{{item.name}}</view>
+        </picker-view-column>
+<!-- 区 -->
+        <picker-view-column>
+            <view wx:for="{{areas}}" class="picker-item"  wx:key="index">{{item.name}}</view>
+        </picker-view-column>
+    </picker-view>
+</view>

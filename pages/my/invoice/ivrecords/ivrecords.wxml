@@ -1,0 +1,11 @@
+<!--pages/my/invoice/ivrecords/ivrecords.wxml-->
+<view class="wrap">
+  <view class="wrap_container" wx:for="{{lists}}" wx:key="index">
+    <view class="zhanwei"></view>
+    <view class="index_head">
+      <view class="index_head_one">开票金额:<text>￥{{item.amount}}</text></view>
+      <view>发票抬头: <text>{{item.invoice_title}}</text></view>
+      <view>开票时间: <text wx:if="{{item.add_time}}">{{item.add_time}}</text></view>
+    </view>
+  </view>
+</view>

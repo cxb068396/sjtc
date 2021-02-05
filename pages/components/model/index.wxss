@@ -1,0 +1,70 @@
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.shade {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  /*要显示在wrap的上面 */
+  z-index: 99;
+  position: fixed;
+}
+
+.middle_content {
+  margin: 368rpx 106rpx;
+  position: relative;
+}
+
+.middle_content image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 540rpx;
+  height: 600rpx;
+}
+
+.middle_content .title {
+  color: #333;
+  font-size: 24rpx;
+  position: absolute;
+  top: 410rpx;
+  z-index: 999;
+  width: 100%;
+}
+.middle_content .title .input{
+  display: flex;
+  justify-content: center;
+}
+.middle_content .bg_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 480rpx;
+  left: 66rpx;
+  z-index: 999;
+}
+
+.middle_content .bg_btn .bg_btn_left,
+.middle_content .bg_btn .bg_btn_right {
+  width: 176rpx;
+  height: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+  color: #BD4044;
+  font-size: 28rpx;
+  border: 1rpx solid #BD4044;
+  border-radius: 28rpx;
+}
+
+.middle_content .bg_btn .bg_btn_right {
+  margin-left: 52rpx;
+  color: #fff;
+  background-color: #BD4044;
+}

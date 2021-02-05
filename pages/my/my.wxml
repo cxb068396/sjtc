@@ -1,0 +1,94 @@
+<view>
+	<!--头部start-->
+	<view class='login'>
+		<!-- 已登录 -->
+		<view class='login_info_in' wx:if='{{showUserInfo}}'>
+			<image src="{{avatar}}" bindtap="gotoPerson"></image>
+			<view class='long_btn'>{{username}}</view>
+		</view>
+		<!-- 未登录 -->
+		<view class='login_info' wx:else>
+			<view class='img'>
+				<image src="../static/images/person.png"></image>
+			</view>
+			<view class='long_btn' bindtap="login">未登录</view>
+		</view>
+	</view>
+	<!--头部end-->
+	<!--会员卡优惠券start-->
+	<view class="member_preferential">
+		<view class='member'>
+			<view class='member_left' bindtap='gotoMember' wx:if='{{showUserInfo}}'>
+				<view class='nums'>￥{{balance}}</view>
+				<view class='member_title'>会员余额</view>
+			</view>
+			<view class='member_left' wx:else>
+				<view class='duanxian'></view>
+				<view class='member_title'>会员余额</view>
+			</view>
+			<view class='member_middle'></view>
+			<view class='member_left' bindtap="gotoCoupon" wx:if='{{showUserInfo}}'>
+				<view class='nums'>{{couponCounts}}<text>张</text></view>
+				<view class='member_title'>优惠券</view>
+			</view>
+			<view class='member_left' wx:else>
+				<view class='duanxian'></view>
+				<view class='member_title'>优惠券</view>
+			</view>
+		</view>
+	</view>
+	<!--会员卡优惠券end-->
+
+	<!--订单start-->
+	<view class='order_bill'>
+		<view class='order_bill_list' bindtap="goOrder">
+			<view class='list_left'>
+				<image src='../static/images/order.png'></image>
+				<text>我的订单</text>
+			</view>
+			<view class='right'>
+				<image src="../static/images/more_right.png"></image>
+			</view>
+		</view>
+		<view class='order_bill_list' bindtap="goInvoice">
+			<view class='list_left'>
+				<image src='../static/images/bill.png'></image>
+				<text>我的发票</text>
+			</view>
+			<view class='right'>
+				<image src="../static/images/more_right.png"></image>
+			</view>
+		</view>
+	</view>
+	<!--订单end-->
+	<!--酒店预订start-->
+	<view class='book_hotel'>
+		<view class='order_bill'>
+			<view class='order_bill_list' bindtap="goWineTast">
+				<view class='list_left'>
+					<image src='../static/images/book.png'></image>
+					<text>品酒预订</text>
+				</view>
+				<view class='right'>
+					<image src="../static/images/more_right.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!--酒店预订end-->
+	<!--设置start-->
+	<view class='book_hotel'>
+		<view class='order_bill'>
+			<view class='order_bill_list' bindtap="goSetting">
+				<view class='list_left'>
+					<image src='../static/images/shezhi.png'></image>
+					<text>设置</text>
+				</view>
+				<view class='right'>
+					<image src="../static/images/more_right.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!--设置end-->
+</view>

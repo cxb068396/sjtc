@@ -1,0 +1,16 @@
+<!--pages/my/invoice/ivpayable/ivpayable.wxml-->
+<view class="wrap">
+  <view class="index_head" wx:for="{{arrList}}" wx:key="id">
+    <view class="zhanwei"></view>
+    <scroll-view scroll-y="{{false}}" style="width:98%;margin-left:1%">
+      <view class="index_box" data-index="{{index}}" data-id="{{item.id}}" data-title="{{item.invoice_title}}" data-code="{{item.invoice_number}}" data-email="{{item.email}}" bind:touchstart="touchstart" catch:touchmove="touchmove" bind:touchend="touchend" style="transform:translateX({{item.left}}rpx);transition:all 0.7s;" bindtap="chooseOne">
+        <view class="index_box_left">{{item.invoice_title}}</view>
+        <image src="../../../static/images/btn_gai_n.png" class="index_box_right" catchtap="tochose" data-index="{{index}}" data-id="{{id}}"></image>
+        <view class="del-btn" data-id="{{item.id}}" bindtap="scrollDel">删除</view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="index_footer">
+    <view class="index_footer_container" bindtap="toaddPayable" data-page="Ivpayable">添加发票抬头</view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="wenti"></view>
+<textarea class="textarea-bg font_s33 font_c31" 
+    id="information" maxlength='500' placeholder="请填写您的意见与建议" name="information" value="{{information}}"bindinput="getDataBindTap">
+    <view class='word' id="counter">{{lastArea}}/500</view>
+</textarea>
+<view class="text_first text">我们所收集到的意见反馈讲用于改善产品体验。</view>
+<view class="text_second text">谢谢您的宝贵建议。</view>
+
+<view class="tofwuqi" bindtap="tofwuqi" >发送</view>

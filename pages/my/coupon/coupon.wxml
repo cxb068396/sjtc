@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<view class="swiper-tab">
+	<view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="2" bindtap="swichNav">未使用({{arrList.length}})</view>
+	<view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="3" bindtap="swichNav">已使用({{arrList1.length}})</view>
+	<view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="4" bindtap="swichNav">已过期({{arrList2.length}})</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight?winHeight+'px':'auto'}}" bindchange="bindChange">
+	<!-- 我是哈哈 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}">
+			<!--搜索框-->
+			<view class='input_coupon'>
+				<view class='coupon_code'>
+					<input type="text" placeholder="请输入兑换码" placeholder-style="color:#BCBCBC;font-size:24rpx"></input>
+					<view class='btn'>兑换</view>
+				</view>
+			</view>
+			<view class='noaddress'wx:if='{{arrList.length == 0}}'>
+				<image src="../../static/images/nocoupon.png"></image>
+				<view class='tishi'>您还没有优惠券哦~</view>
+			</view>
+			<!---未使用优惠券-->
+			<view wx:for='{{arrList}}' wx:key='index'>
+				<view class='not_used_coupon' bind:tap="useCoupon" data-id="{{item.id}}" >
+					<image src="../../static/images/not_used.png"></image>
+					<view class='coupon_left'>
+						<view class="conpon_left_top">{{item.coupon_type==1?'￥':'折'}}<text>{{item.minus}}</text></view>
+						<view class="conpon_left_bottom">{{item.coupon_type==1?'满减券':'折扣券'}}</view>
+					</view>
+					<view class='coupon_right'>
+						<view class='title'>{{item.coupon_name}}</view>
+						<view class='limit_time'>截止兑换日期{{item.limit_time}}</view>
+					</view>
+				</view>
+			</view>
+			
+		</scroll-view>
+	</swiper-item>
+	<!-- 我是呵呵 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}">
+			<!--搜索框-->
+			<view class='input_coupon'>
+				<view class='coupon_code'>
+					<input type="text" placeholder="请输入兑换码" placeholder-style="color:#BCBCBC;font-size:24rpx"></input>
+					<view class='btn'>兑换</view>
+				</view>
+			</view>
+			<view class='noaddress' wx:if='{{arrList1.length == 0}}'>
+				<image src="../../static/images/nocoupon.png"></image>
+				<view class='tishi'>您还没有优惠券哦~</view>
+			</view>
+			<!--已经使用的优惠券--->
+			<view wx:for='{{arrList1}}' wx:key='index'>
+				<view class='not_used_coupon'>
+					<image src="../../static/images/used.png"></image>
+					<view class='coupon_left'>
+						<view class="conpon_left_top">{{item.coupon_type==1?'￥':'折'}}<text>{{item.minus}}</text></view>
+						<view class="conpon_left_bottom">{{item.coupon_type==1?'满减券':'折扣券'}}</view>
+					</view>
+					<view class='coupon_right'>
+						<view class='title'>{{item.coupon_name}}</view>
+						<view class='limit_time'>截止兑换日期{{item.limit_time}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</swiper-item>
+	<!-- 我是嘿嘿 -->
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{winHeight?winHeight+'px':'auto'}}">
+			<!--搜索框-->
+			<view class='input_coupon'>
+				<view class='coupon_code'>
+					<input type="text" placeholder="请输入兑换码" placeholder-style="color:#BCBCBC;font-size:24rpx"></input>
+					<view class='btn'>兑换</view>
+				</view>
+			</view>
+			<view class='noaddress' wx:if='{{arrList2.length == 0}}'>
+				<image src="../../static/images/nocoupon.png"></image>
+				<view class='tishi'>您还没有优惠券哦~</view>
+			</view>
+
+			<!--过期的优惠券--->
+			<view wx:for='{{arrList2}}' wx:key='index'>
+				<view class='not_used_coupon' >
+					<image src="../../static/images/overdue.png"></image>
+					<view class='coupon_left'>
+						<view class="conpon_left_top">{{item.coupon_type==1?'￥':'折'}}<text>{{item.minus}}</text></view>
+						<view class="conpon_left_bottom">{{item.coupon_type==1?'满减券':'折扣券'}}</view>
+					</view>
+					<view class='coupon_right'>
+						<view class='title'>{{item.coupon_name}}</view>
+						<view class='limit_time'>截止兑换日期{{item.limit_time}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</swiper-item>
+</swiper>
+<view class="footer_coupon">
+	<view class='more_coupon' bindtap="drawCoupon">领取更多优惠劵</view>
+</view>

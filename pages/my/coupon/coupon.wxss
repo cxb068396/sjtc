@@ -1,0 +1,187 @@
+/**indexwxss**/
+page{
+  background-color: #F6F6F6
+}
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 88rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+}
+swiper{
+  position: absolute;
+  top: 88rpx;
+}
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33%;
+  color: #777777;
+}
+
+.on {
+  color: #BD4044;
+  position: relative;
+}
+.on::before{
+  position: absolute;
+  bottom: 0;
+  left: 75rpx;
+  content: '';
+  width: 100rpx;
+  height: 5rpx;
+  background-color: #BD4044;
+}
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}
+swiper-item{
+position: relative;
+-webkit-overflow-scrolling:touch
+}
+swiper-item::before{
+  content: '';
+  width: 100%;
+
+}
+.input_coupon{
+  width: 100%;
+  background-color: #F6F6F6;
+  height: 70rpx;
+  display: none;
+}
+.coupon_code{
+  width: 710rpx;
+  height: 50rpx;
+  display: flex;
+  padding: 20rpx;
+}
+.coupon_code input{
+  width: 690rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: left;
+  padding-left:20rpx ;
+  background-color: #fff;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.coupon_code .btn{
+  width: 100rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  color: #fff;
+  background-color: #BD4044;
+  font-size: 24rpx;
+}
+.noaddress{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 150rpx 0;
+  margin-top: 20rpx;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+.noaddress image{
+  width: 380rpx;
+  height: 340rpx;
+  margin-bottom: 20rpx;
+}
+.noaddress .tishi{
+  color: #999;
+  font: 28rpx;
+}
+.more_coupon{
+  width: 710rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  background-color: #BD4044;
+  position: fixed;
+  bottom: 20rpx;
+  left: 20rpx;
+}
+.not_used_coupon{
+  width: 737rpx;
+  height: 186rpx;
+  margin: 0 0 0 20rpx;
+  position: relative;
+  top: 10rpx;
+}
+.not_used_coupon image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.not_used_coupon .coupon_left{
+  width: 130rpx;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-size: 20rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 30rpx;
+}
+.not_used_coupon .coupon_left text{
+  font-size: 80rpx;
+  font-weight: bold;
+}
+.not_used_coupon .coupon_right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 55rpx;
+  left: 200rpx;
+}
+.not_used_coupon .coupon_right .title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+.not_used_coupon .coupon_right .limit_time{
+  color: #999;
+  font-size: 22rpx;
+}
+
+.footer_coupon{
+  width: 100%;
+  height: 110rpx;
+  background-color: #F6F6F6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.conpon_left_top{
+  float: left;
+}
+
+.conpon_left_bottom{
+  position: relative;
+  top: -7rpx;
+}

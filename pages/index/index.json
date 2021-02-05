@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "诗酒天成",
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

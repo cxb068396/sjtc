@@ -1,0 +1,22 @@
+<!--包厢-->
+<block wx:for="{{wineIndexList}}" wx:key='index'>
+<view class='book_container'>
+  <view class='header'>
+    <view class='left'>
+      <text>|</text>{{item.name}}
+    </view>
+    <view class='right'>￥{{item.price}}</view>
+  </view>
+  <view class='contents'>
+    <block wx:for="{{item.desk}}" wx:key='index' wx:for-item="items">
+    <view class='wineInfo' bindtap="goBookInfo" data-id="{{items.id}}" data-price='{{item.price}}'>
+      <image src='{{baseUrl}}{{items.desk_image}}'></image>
+      <view class='info_right'>
+        <view class='title'>{{items.desk_name}}</view>
+        <view class='pernum'>最多容纳{{items.max_num}}人</view>
+      </view>
+    </view>
+  </block>
+  </view>
+</view>
+</block>

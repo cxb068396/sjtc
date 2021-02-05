@@ -1,0 +1,22 @@
+<view class='transaction_containner'>
+	<view class='transaction'>
+		<image src="../../static/images/detail_icon.png"></image>
+		<view class='success'>支付成功</view>
+		<view class='thank'>感谢您的购买！</view>
+		<view class='price'>￥{{total}}</view>
+		<view class='info'>
+			商品： <text>{{name}}等</text>
+		</view>
+		<view class='info'>
+			交易时间：<text>{{create_time}} </text>
+		</view>
+		<view class='info'>
+			支付方式：<text>零钱 </text>
+		</view>
+		<view class='info'>
+			交易单号<text>{{order_num}}
+ </text>
+		</view>
+    <view class='btn' bindtap='goBack'>完成</view>
+	</view>
+</view>

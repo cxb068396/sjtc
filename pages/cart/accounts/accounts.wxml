@@ -1,0 +1,152 @@
+<view class='accounts_container'>
+	<!--物流satrt-->
+	<view class='selectway'>
+		<view class='way' data-way='selfRaising'  bindtap="selectWay">
+			<image wx:if='{{isdefault}}' src="../../static/images/way_two.png"></image>
+			<image wx:else src="../../static/images/way_one.png"></image>
+			<view>自提</view>
+		</view>
+		<view class='way' data-way='logistics' bindtap="selectWay">
+			<image wx:if='{{isdefault}}' src="../../static/images/way_one.png"></image>
+			<image wx:else src="../../static/images/way_two.png"></image>
+			<view>物流</view>
+		</view>
+	</view>
+	<!--物流end-->
+	<!--地址start-->
+	<!--暂无地址-->
+	<block wx:if='{{isShowAddress}}' >
+	<view bindtap="toaddress" class="cart_address" wx:if='{{addressInfo}}' bindtap="gotoAddress" data-page='accounts'>
+		<image class="cart_shopimg" src="../../static/images/btn_position.png"></image>
+		<view class="cart_allname">
+			<view class="cart_con">
+				<text class="cart_name" >{{addressInfo.name}}</text> <text style="width:10rpx" ></text>
+				<text class="cart_call" >{{addressInfo.mobile}}</text>
+			</view>
+			<view class="address">{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.county}}{{addressInfo.area}}</view>
+		</view>
+		<image  class="cart_btnimg" src="../../static/images/btn_gai_n.png"></image>
+	</view>
+		<view bindtap="toaddress" class="cart_address" wx:else bindtap="gotoAddress" data-page='accounts'>
+		<image class="cart_shopimg" src="../../static/images/btn_position.png"></image>
+		<view class="title">
+	    您还没有添加地址
+		</view>
+		<image class="cart_btnimg" src="../../static/images/btn_gai_n.png"></image>
+	</view>
+	</block>
+	<!-- 地址end -->
+	<!--订单开始-->
+	<view class='order_container'>
+		<view class='order'>
+			<view class='order_header'>
+				<text></text>
+				<view>您的订单</view>
+			</view>
+			<block wx:for='{{carts}}' wx:key='index'>
+			<view class='order_content'>
+				<image wx:if='{{!page}}' src='{{baseUrl}}{{item.img}}'></image>
+				<image wx:if='{{page}}' src='{{item.main_images}}'></image>
+				<view class='order_title'>
+					<view class='title'>{{item.title}}</view>
+					<!-- <view class='new'>新人优惠</view> -->
+					<view class='price'>
+						<view wx:if='{{!page}}' class='newprice'>￥{{item.sell_price}}</view>
+						<view wx:if='{{page}}' class='newprice'>￥{{item.price}}</view>
+						<!-- <view class='oldprice'>￥2000</view> -->
+					</view>
+				</view>
+				<view class="stepper">
+					<text data-index="{{index}}"  class="minusStatus" bind:tap="bindMinus">-</text>
+					<input data-index="{{index}}" type="number" disabled="true"  bindblur="bindManual" value="{{item.num}}" />
+					<text data-index="{{index}}"  class="normal" bind:tap="bindPlus">+</text>
+				</view>
+			</view>
+			</block>
+		</view>
+	</view>
+	<!-- 订单结束 -->
+	<!--结算详情开始-->
+	<view class='info_container'>
+		<view style="margin-top:10rpx" class="ment_per">
+			<view class="ment_perone">
+				<view class='order_header1'>
+					<text></text>
+					<view>订单总计</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="ment_per">
+			<view class="ment_perone">
+				<text class="ment_text" >优惠券:</text>
+				<text wx:if='{{discount>0}}' class="discount discountow" bind:tap="navigateToCoupon">-￥{{discount}}</text>
+				<text wx:else class="discount discountow" bind:tap="navigateToCoupon">选择优惠券</text>
+				<image class="ment_jiantou" src="../../static/images/more_right.png" bind:tap="navigateToCoupon"></image>
+			</view>
+		</view>
+
+		<view class="ment_per">
+			<view class="ment_perone">
+				<text class="ment_text" >订单备注:</text>
+				<input bindinput="bindin" class="ment_inp" value="{{remark}}" type="text" placeholder="请输入备注内容" placeholder-style="color:#cdcdcd;"></input>
+			</view>
+		</view>
+		<view class="ment_per" bindtap="ceshi">
+			<view class="ment_perone">
+				<text class="ment_text" >总计:</text>
+				<text style="color:#888888;font-size:28rpx" class="discount " >￥{{totalPrice}}</text>
+			</view>
+		</view>
+		<view class="ment_per" bindtap="ceshi">
+			<view class="ment_perone">
+				<text class="ment_text" >优惠券折扣:</text>
+				<text style="color:#888888;font-size:28rpx" class="discount" >￥{{discount}}</text>
+			</view>
+		</view>
+		<view class="ment_per" bindtap="ceshi">
+			<view class="ment_perone">
+				<text class="ment_text" >邮寄费用:</text>
+				<text style="color:#888888;font-size:28rpx" class="discount" >￥{{freight}}</text>
+			</view>
+		</view>
+	</view>
+	<!--结算详情结束-->
+	<!-- 支付方式start -->
+	<view class='pay_container'>
+		<view class='pay_way'>
+			<view class='left'>
+				<image src="../../static/images/wechat_pay.png"></image>
+				微信支付
+			</view>
+			<view class='right' data-way='wechat' bindtap="payWay">
+				<image wx:if='{{wechatPay}}' src="../../static/images/way_two.png"></image>
+				<image wx:else src="../../static/images/way_one.png"></image>
+			</view>
+		</view>
+
+		<view class='pay_way'>
+			<view class='left'>
+				<image src="../../static/images/yuer_pay.png"></image>
+				余额支付({{balance}})
+			</view>
+			<view class='right' data-way='yuer' bindtap="payWay">
+				<image wx:if='{{wechatPay}}' src="../../static/images/way_one.png"></image>
+				<image wx:else src="../../static/images/way_two.png"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 支付方式end -->
+</view>
+<!-- 结算按钮start -->
+<view class='btn_container'>
+	<view class='btn_left'>共{{nums}}件</view>
+	<view class='btn_right'>
+		<view class='btn_right_content'>
+			<view class='all'>总计： <text>￥{{payment}}</text> </view>
+			<view class='youhui'>优惠金额：{{discount}}</view>
+		</view>
+		<view class='sunbmit' bindtap="topayment">提交订单</view>
+	</view>
+</view>
+<!-- 结算按钮end -->

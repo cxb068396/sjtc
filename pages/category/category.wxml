@@ -1,0 +1,83 @@
+	<!--搜索栏start-->
+
+	<view class='input_search'>
+		<view class="weui-search-bar">
+			<view class="weui-search-bar__form">
+				<!-- 搜索框 -->
+				<navigator class="weui-search-bar__box" url="/pages/index/search/search" hover-class="none">
+					<image bindtap='a' class="weui-icon-search_in-box" src="../static/images/search.png"></image>
+					<input type="text" class="weui-search-bar__input" placeholder="请输入关键词搜索" disabled='true' />
+				</navigator>
+			</view>
+		</view>
+	</view>
+
+	<!--搜索栏end-->
+
+	<!---分类start-->
+	<!--主盒子-->
+
+	<view class="category_container" style="height:{{winHeight+'px'}}">
+		<!--左侧栏-->
+		<view class="nav_left">
+			<block wx:for="{{cateItems}}" wx:key="index">
+				<!--当前项的id等于item项的id，那个就是当前状态-->
+				<!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
+				<view class="nav_left_items {{cateId == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.title}}</view>
+			</block>
+		</view>
+		<!--右侧栏-->
+		<view class="nav_right">
+			<!--如果有数据，才遍历项-->
+			<!---头部-->
+			<view class='nav_right_header'>
+				<scroll-view scroll-x class="nav_right_top">
+					<block wx:for="{{rightTopList}}" wx:key="unique">
+						<view class="right_top_items {{rightId==item.id?'nav_header_active':''}}" data-index="{{index}}" data-id="{{item.id}}" bindtap="onRightTab">
+							<text>{{item.title}}</text>
+						</view>
+					</block>
+				</scroll-view>
+				<view class='img' bindtap="showMenu" >
+					<image src='../static/images/category.png'></image>
+				</view>
+			</view>
+			<!--主题内容--->
+ 
+			<view class='nav_right_content'>
+			<block wx:for='{{categoryList}}' wx:key='index'>
+				<view class='nav_right_content_items' data-id='{{item.sku_id}}' bindtap="goTodetail">
+					<image src="{{baseUrl}}{{item.main_images}}"></image>
+					<view class='item_info'>
+						<view class='item_info_title'>{{item.name}}</view>
+						<view class='item_info_price'>
+							<view class='new'>￥{{item.sell_price}}</view>
+							<view class='old'>￥{{item.opening_price}}</view>
+						</view>
+					</view>
+					<image  catchtap="addShopCart" data-id='{{item.sku_id}}' src="../static/images/add.png"></image>
+				</view>
+		 </block>
+		  <view style='height:200rpx;width:75%'></view>
+			</view>
+
+			<!--如果无数据，则显示数据-->
+		</view>
+		<!--遮罩层  -->
+		<view class="shade" wx:if='{{isshowMenu}}' bindtap="showMenu">
+			<view class='content'>
+				<view class='shade_header'>
+					全部分类
+					<image src="../static/images/category.png"></image>
+				</view>
+				<view class='slect'>
+					<block wx:for='{{rightTopList}}' wx:key='index'>
+						<view class="item {{rightId==item.id?'on':''}}"  data-index="{{index}}" data-id="{{item.id}}" bindtap="onRightTab">{{item.title}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<!-- 分类end -->

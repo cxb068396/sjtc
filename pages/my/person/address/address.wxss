@@ -1,0 +1,107 @@
+page{
+  background-color: #F6F6F6;
+  padding-bottom: 100rpx;
+}
+.noaddress{
+  width: 100%;
+  margin: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+.noaddress image{
+  width: 380rpx;
+  height: 340rpx;
+  margin-bottom: 40rpx;
+}
+.noaddress .title{
+  color: #999;
+  font-size: 28rpx;
+}
+.touch-item {
+  display: flex;
+  justify-content: space-between;
+  width: 710rpx;
+  overflow: hidden;
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 24rpx;
+}
+
+.content {
+  width: 100%;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  margin-left: -162rpx;
+  margin-top: -60rpx;
+}
+.namePhone, .address, .edit{
+  width: 660rpx;
+}
+.namePhone{
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+.address{
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  box-sizing: border-box;
+}
+.edit{
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 24rpx;
+  align-items: center;
+  padding-top: 10rpx;
+  /* margin-top: 30rpx; */
+  position: relative;
+  top: 15rpx;
+}
+.edit image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+.del {
+  width: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;  
+  background-color: #BD4044;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 24rpx;
+  border-top-right-radius: 24rpx;
+  border-bottom-right-radius: 24rpx;
+}
+
+.touch-move-active .content,
+.touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.addAddress{
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  width: 710rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #BD4044;
+  border-radius: 40rpx;
+}

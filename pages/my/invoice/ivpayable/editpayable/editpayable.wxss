@@ -1,0 +1,70 @@
+/* pages/my/invoice/ivpayable/editpayable/editpayable.wxss */
+/* pages/my/invoice/ivpayable/addpayable/addpayable.wxss */
+.wrap{
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+.zhanwei{
+  width: 100%;
+  height: 20rpx;
+}
+.index_top{
+  width: 95%;
+  height: 331rpx;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 24rpx;
+}
+.index_top_con{
+  width: 95%;
+  height: 82rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.top_con_left{
+  width: 150rpx;
+  font-weight: 400;
+  color: #343434;
+}
+.top_con_write{
+  width: 75%;
+  height: inherit;
+  border: none;
+  margin-left: 3%;
+}
+.index_bottom_con{
+  width: 95%;
+  height: 82rpx;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.top_con_switch{
+  margin-left: 3%;
+  zoom: 0.8;
+}
+.index_footer{
+  width: 100%;
+  height: 104rpx;
+  background-color: #f6f6f6;
+}
+.index_footer_container{
+  width: 95%;
+  height: 64rpx;
+  background-color: #BD4044;
+  border-radius: 32rpx;
+  margin: auto;
+  position: fixed;
+  bottom: 20rpx;
+  left: 2%;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #fff;
+}

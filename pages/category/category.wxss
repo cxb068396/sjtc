@@ -1,0 +1,243 @@
+.input_search{
+  width: 100%;
+  background-color: #BD4044;
+  position: fixed;
+  padding: 26rpx 0;
+  height: 70rpx;
+  top:0;
+  left:0;
+}
+
+.weui-search-bar {
+  position: relative;
+  padding: 8rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.weui-icon-search_in-box {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 30px;
+  background: #FFFFFF;
+  border: 1rpx solid #FFFFFF;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+/* 分类css */
+page{ 
+background: #f5f5f5; 
+} 
+/*总体主盒子*/ 
+.category_container { 
+display: flex;
+width: 100%; 
+height: 100%; 
+color: #939393; 
+position: fixed;
+top:122rpx;
+left:0;
+}
+/*左侧栏主盒子*/ 
+.nav_left{ 
+/*设置行内块级元素（没使用定位）*/ 
+display: inline-block; 
+width: 25%; 
+height: 100%; 
+/*主盒子设置背景色为灰色*/ 
+background: #fff; 
+text-align: center; 
+} 
+/*左侧栏list的item*/ 
+.nav_left .nav_left_items{ 
+/*每个高30px*/ 
+height: 80rpx; 
+/*垂直居中*/ 
+line-height: 80rpx; 
+/*只设下边线*/ 
+border-bottom: 1rpx solid #dedede; 
+/*文字14px*/ 
+font-size: 28rpx; 
+background-color: #fff;
+} 
+/*左侧栏list的item被选中时*/ 
+.nav_left .nav_left_items.active{ 
+/*背景色变成白色*/ 
+background:#EEEEEE; 
+color:#333; 
+} 
+/*右侧栏主盒子*/ 
+.all_right{
+  flex: 1; 
+/*宽度75%，高度占满，并使用百分比布局*/ 
+width: 75%; 
+box-sizing: border-box; 
+display: flex;
+flex-direction: column;
+}
+.nav_right{ 
+/*宽度75%，高度占满，并使用百分比布局*/ 
+width: 75%; 
+box-sizing: border-box; 
+}
+.nav_right_header{
+  display: flex;
+}
+.nav_right_header .img{
+ width: 20%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: #EEEEEE;
+}
+.nav_right_header .img image{
+  width: 26rpx;
+  height: 26rpx;
+ }
+.nav_right .nav_right_top {
+  display: flex;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #EEEEEE;
+  white-space: nowrap;
+  font-size: 28rpx;
+  flex-direction: row;
+  padding: 1rpx 0;
+}
+
+.nav_right_top .right_top_items {
+  display: inline-block;
+  margin: 0 40rpx;
+}
+.nav_right_top .nav_header_active{
+  color: #BD4044;
+}
+.nav_right_content{
+  margin: 0 20rpx 0rpx 10rpx;
+  height:1080rpx;
+  overflow-y:scroll;
+  
+}
+.nav_right_content_items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  height: 160rpx;
+}
+.nav_right_content_items>image:first-child{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.nav_right_content_items>image:last-child{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 18rpx;
+}
+.nav_right_content_items .item_info{
+display: flex;
+flex-direction: column;
+margin-left: -70rpx;
+}
+.item_info .item_info_title{
+  color: #333;
+  font-size: 24rpx;
+}
+.item_info .item_info_price{
+  display: flex;
+}
+.item_info .item_info_price .new{
+  color: #BD4044;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.item_info .item_info_price .old{
+  color: #999;
+  font-size: 20rpx;
+  text-decoration: line-through;
+  align-self: flex-end;
+  position: relative;
+  bottom: 4rpx;
+  left: 5rpx;
+}
+.shade{
+  width: 100%;
+  height: 100%;
+  bottom:0;   
+  background:rgba(0,0,0,0.5);   
+  overflow: hidden;   
+  /*要显示在wrap的上面 */   
+  z-index: 99;   
+ position: absolute;
+}
+.content{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+
+  border-bottom-left-radius: 24rpx;
+  background-color: #fff;
+}
+.content .shade_header{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #333;
+  font-size: 28rpx;
+  margin:20rpx 10rpx;
+}
+.content .shade_header image{
+  width: 26rpx;
+  height: 26rpx;
+  margin: 0 10rpx;
+}
+.content .slect{
+  display: flex;
+  flex-wrap: wrap;  
+  padding: 0 15rpx;
+}
+.content .slect .item{
+  border-radius: 10rpx;
+  border: 1rpx solid #BD4044;
+  color: #BD4044;
+  margin-right: 25rpx;
+  margin-bottom: 20rpx;
+  margin-left:15rpx ;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+}
+.content .slect .on{
+  color: #fff;
+  background-color: #BD4044;
+}

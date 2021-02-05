@@ -1,0 +1,77 @@
+.surplus{
+  width: 710rpx;
+  height: 320rpx;
+  margin: 20rpx;
+  position: relative;
+  /* display: flex;
+  align-items: center;
+  flex-direction: column; */
+}
+.surplus image{
+  width: 100%;
+  height: 100%;
+}
+.surplus .money{
+  font-size: 40rpx;
+  color: #fff;
+  font: bold;
+  position: absolute;
+  top: 80rpx;
+ width: 710rpx;
+ text-align: center;
+}
+.surplus .money text{
+  font-size: 80rpx;
+}
+.surplus .price_desc{
+  font-size: 24rpx;
+  color: #fff;
+  position: absolute;
+  bottom: 30rpx;
+  text-align: center;
+  width: 710rpx;
+}
+.price_num{
+  width: 710rpx;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 20rpx 0 0 60rpx; */
+}
+.price_num .num{
+  width: 220rpx;
+  height: 120rpx;
+  background-color: #EEE;
+  font: 38rpx;
+  color: #343434;
+  font-weight: 400;
+  border-radius: 10rpx;
+  border: 1rpx solid #eee;
+  text-align: center;
+  line-height: 120rpx;
+  margin: 7rpx;
+  position: relative;
+}
+.price_num .num input{
+  position: absolute;
+  top: 40rpx;
+
+}
+.price_num .on{
+  background-color: #F2DADA;
+  color: #BE4044;
+  border: 1rpx solid #BD4044;
+}
+.invest_money{
+  width: 710rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #BD4044;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  position: absolute;
+  bottom: 30rpx;
+  left: 20rpx;
+}

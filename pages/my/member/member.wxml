@@ -1,0 +1,18 @@
+<view>
+<!--图片start-->
+<view class='surplus'>
+<image src="../../static/images/bg_member.png"></image>
+<view class='money'>￥<text>{{recharge}}</text></view>
+<view class='price_desc'>会员余额（元）</view>
+</view>
+<!--图片end-->
+<view class='price_num'>
+<block wx:for='{{nums}}' wx:key='index'>
+<view class='num {{currentIndex==index?"on":""}}' data-num="{{item}}" data-index='{{index}}'  bindtap="selectNum">{{item==''?'':'￥'}}{{item}}
+  <input wx:if="{{item==''}}" type="number" placeholder="自定义" bindinput="numInput"/>
+</view>
+</block>
+</view>
+
+<view class='invest_money' bindtap="RechargeRechargeAmount">立即充值</view>
+</view>

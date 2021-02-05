@@ -1,0 +1,97 @@
+<!-- 头部start -->
+<view class="title">
+  <image src="../../static/images/invoice_pic.png"></image>
+  预定后，请提前到店，超时将自动作废。
+</view>
+<view class='bookInfo'>
+  <view class='book'>
+    <view class='left'>人数</view>
+    <input type="number" placeholder="最大人数{{max_num}}人" placeholder-style="color:#999;font-size:28rpx" bindinput="inputnum" value="{{num}}"/>
+  </view>
+  <view class='book' bindtap='showTimeModel'>
+    <view class='left'>预约时间</view>
+    <view wx:if='{{serviceNeedTime}}' class='input'>{{serviceNeedTime}}</view>
+    <view wx:else class='title'>请选择预约时间</view>
+  </view>
+  <view class='book'>
+    <view class='left'>预约手机号</view>
+    <input type="number" placeholder="请输入手机号" placeholder-style="color:#999;font-size:28rpx" value="{{mobile}}"  bindinput="inputMobile"/>
+  </view>
+</view>
+<!-- 头部end -->
+<!-- 支付方式start -->
+<view class='pay_container'>
+  <view class='pay_way'>
+    <view class='left'>
+      <image src="../../static/images/wechat_pay.png"></image>
+      微信支付
+    </view>
+    <view class='right' data-way='wechat' bindtap="payWay">
+      <image wx:if='{{wechatPay}}' src="../../static/images/way_two.png"></image>
+      <image wx:else src="../../static/images/way_one.png"></image>
+    </view>
+  </view>
+
+  <view class='pay_way'>
+    <view class='left'>
+      <image src="../../static/images/yuer_pay.png"></image>
+      余额支付({{balance}})
+    </view>
+    <view class='right' data-way='yuer' bindtap="payWay">
+      <image wx:if='{{wechatPay}}' src="../../static/images/way_one.png"></image>
+      <image wx:else src="../../static/images/way_two.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 支付方式end -->
+<!--日期弹出框-->
+<view class="modal {{timeShow?'modal_show':'modal_hide'}}">
+  <!-- 点击弹出框外部关闭弹出框 -->
+  <view class='modal_cancel' bindtap='modelCancel'></view>
+  <!-- 弹出框主体 -->
+  <view class='modal_container'>
+    <!-- 头部显示 -->
+    <view class='modal_header'>
+      <view>预定时间</view>
+      <view class='header_tip'>{{yyDay}}天内的预订</view>
+    </view>
+    <!-- 日期 -->
+    <view class="time">
+      <scroll-view class="time_scroll" scroll-x="true">
+        <view data-index="{{index}}" bindtap="timeClick" class="scroll_item {{currentTab==index?'time_active':''}}"
+          wx:for="{{timeList}}" wx:key="index">
+          <view>{{item.name}}</view>
+          <view>{{item.date}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 时间段 -->
+    <view class='hour'>
+      <view bindtap="hourClick"
+        class="hour_item {{item.isShow?'':'hour_unactive'}} {{hourIndex==index?'hour_active':''}} "
+        wx:for="{{hourList}}" wx:key="index" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}</view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 密码输入框 -->
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'><text>使用会员余额支付需要验证身份，验证通过后才可进行支付。</text></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{pwdVal.length>i}}'></text>
+            </view>
+        </view>
+        <view class='forget_pwd' catchtap='goNote'>忘记密码</view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>
+<view class='bookBtn' bindtap="bookConfirm">立即预订</view>

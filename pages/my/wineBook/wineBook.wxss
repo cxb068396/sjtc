@@ -1,0 +1,308 @@
+page{
+  background-color: #f6f6f6;
+}
+.title{
+  margin: 20rpx;
+  color: #999;
+  font-size: 23rpx;
+  display: flex;
+  align-items: center;
+}
+.title image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+.bookInfo{
+  width: 710rpx;
+  border-radius: 24rpx;
+  background-color: #fff;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  /* padding: 5rpx; */
+
+}
+.bookInfo>view:first-child{
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.bookInfo>view:nth-child(2){
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.bookInfo .book{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 14rpx; */
+  /* margin-top: 10rpx; */
+  height:82rpx;
+  line-height: 82rpx;
+}
+.bookInfo .book .left{
+  color: #343434;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.bookInfo .book .title{
+  color: #999;
+  font-size: 28rpx;
+}
+/* 弹出框主体 */
+.modal_container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+/* modal_header */
+.modal_header {
+  /* padding: 20rpx; */
+  text-align: center;
+  font-size: 11pt;
+}
+/* header_tip */
+.header_tip {
+  position: relative;
+  font-size: 9pt;
+  color: rgb(180, 40, 45);
+}
+/* 日期弹出框 */
+.modal {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+/* 是否显示 */
+.modal_show {
+  display: block;
+}
+.modal_hide {
+  display: none;
+}
+/* 背景模板*/
+.modal_cancel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* time日期主体view */
+.time {
+  background: #f7f7f7;
+  text-align: center;
+  font-size: 11pt;
+}
+/* time日期主体滚动view */
+.time_scroll {
+  white-space: nowrap;
+  width: 100%;
+  height:100rpx;
+  line-height:50rpx;
+}
+
+.scroll-view-item {
+  height: 100rpx;
+}
+/* 日期 */
+.scroll_item {
+  display: inline-block;
+  padding: 0 40rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+
+/* time_active选择状态 */
+.time_active {
+  color: rgb(180, 40, 45);
+  border-bottom: 4rpx solid rgb(180, 40, 45);
+}
+
+/* 时间 */
+.hour {
+  padding: 20rpx 0 0 20rpx;
+}
+
+.hour_item {
+  width: 22%;
+  box-sizing: border-box;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  float: left;
+  border: 2rpx solid #eee;
+  font-size: 11pt;
+  margin-right: 3%;
+  margin-bottom: 20rpx;
+}
+
+/* hour_active*/
+
+.hour_active {
+  background: rgb(180, 40, 45);
+  color: #fff;
+  border: 2rpx solid rgb(180, 40, 45);
+}
+/* hour_unactive */
+.hour_unactive {
+  color: #999;
+}
+.pay_container{
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  /* padding: 20rpx; */
+  height: 167rpx;
+}
+.pay_container .pay_way{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  width: 95%;
+  height: 82rpx;
+  margin: auto;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.pay_way .left{
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay_way .left image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+.pay_way .right image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.bookBtn{
+  width: 710rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #BD4044;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+  position: fixed;
+  bottom: 20rpx;
+  left: 20rpx;
+}
+
+/* 支付密码css start */
+.bg_layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+.input_main {
+  position: fixed;
+  left: 0;
+  bottom: 500rpx;
+  width: 100%;
+  height: 394rpx;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.input_title {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+
+.input_back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_back text {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: white;
+  border: 1rpx solid #aaa;
+  border-width: 5rpx 0 0 5rpx;
+  transform: rotate(-45deg);
+}
+
+.input_tip {
+  margin: 30rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+
+/* 密码掩码模拟 */
+.input_row {
+  width: 690rpx;
+  margin: 0 auto;
+  height: 98rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 20rpx;
+}
+
+.input_row .pwd_item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1rpx solid #e2e2e2;
+  position: relative;
+}
+
+.pwd_item:nth-last-of-type(1) {
+  border-right: 0;
+}
+
+.pwd_item text {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  background-color: #555;
+}
+
+
+.forget_pwd {
+  float: right;
+  margin: 30rpx;
+  width: 100rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #BD4044;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+.input_control {
+  position: relative;
+  left: -300rpx;
+  bottom: 0;
+  width: 100rpx;
+  height: 100rpx;
+}

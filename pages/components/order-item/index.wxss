@@ -1,0 +1,172 @@
+.shop{
+  background: #fff;
+  margin-bottom: 10px;
+  height: 326rpx;
+  position: relative;
+}
+
+.sh_slt{
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 33rpx;
+}
+.sh_dingsh_red{
+  color: #FE4545;
+}
+.sp_tit{
+  position: absolute;
+  top: 33rpx;
+  left: 152rpx;
+  color: #666666;
+  font-size: 26rpx;
+}
+.sp_neb{
+  color: #CDCDCD;
+  font-size: 24rpx;
+  position: absolute;
+  top: 33rpx;
+  right: 30rpx;
+}
+.sp_procoubt{
+  color: #CDCDCD;
+  font-size: 22rpx;
+  position: absolute;
+  top: 65rpx;
+  right: 30rpx;
+}
+.sp_jjsp{
+color: #666666;
+font-size: 22rpx;
+position: absolute;
+right: 210rpx;
+bottom: 33rpx;
+}
+.sp_jg{
+ font-size: 22rpx;
+ color: #666666;
+ position: absolute;
+ bottom: 33rpx;
+ right: 30rpx;
+}
+.dle{
+  color: #999;
+}
+
+.flex{
+  height: 88rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+
+/*测试*/
+.allOrder{
+  width: 710rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.allOrder_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.allOrder_header .allOrder_header_left{
+  display: flex;
+  color: #999;
+  font-size: 24rpx;
+  align-items: center;
+}
+.allOrder_header_left .waring{
+  width: 52rpx;
+  height: 24rpx;
+  text-align: center;
+  line-height: 24rpx;
+  border-radius: 4rpx;
+  color: #fff;
+  font-size: 16rpx;
+  margin-right: 20rpx;
+  background-color: #BD4044;
+}
+.allOrder_header  .order_status{
+  color: #BD4044;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+.allOrder_header  .grren{
+  color: #009944;
+}
+.allOrder_middle{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F6F6F6;
+}
+.allOrder_middle image{
+  width: 162rpx;
+  height: 162rpx;
+}
+.allOrder_middle_infos{
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 0 140rpx 0 0rpx;
+  align-items: flex-start;
+  float: right;
+}
+.allOrder_middle .allOrder_middle_info{
+  display: flex;
+  flex-direction: column;
+  margin: 0 120rpx 0 20rpx;
+ align-items: flex-start;
+}
+.titles{
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.allOrder_middle .allOrder_middle_info .title{
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.allOrder_middle .allOrder_middle_info .price {
+  font-size: 28rpx;
+  color: #999;
+}
+.allOrder_middle_infos .price{
+  font-size: 28rpx;
+  color: #999;
+}
+.allOrder_middle  .nums{
+  font-size: 24rpx;
+  color: #999;
+  position: absolute;
+  right: 20rpx;
+  top: 152rpx;
+}
+.allOrdr_bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.allOrdr_bottom .all_price {
+  color: #999;
+  font-size: 24rpx;
+}
+.allOrdr_bottom .all_price text{
+color: #333;
+font-weight: 500;
+}
+.allOrdr_bottom .btn{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+}

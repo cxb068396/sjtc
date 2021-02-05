@@ -1,0 +1,78 @@
+<view class='assess_container'>
+	<view class='assess_all'>
+		<!--商品评分开始-->
+		<view class='aeesss_all_header'>
+			<image src='{{orderPic}}'></image>
+			<view class='all_header_right'>
+				<view>52°洋河海之蓝480ML </view>
+				<view class='rate'>商品评分：
+					<view bindtap="starTap" data-index="{{index}}" wx:for="{{userStars}}" wx:key="index">
+						<image class="star" src="{{item}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--商品评分结束-->
+
+		<!--评价内容start--->
+		<view class='conts'>
+			<textarea placeholder="评价字数不要低于10个字哦~" maxlength='200' cols="500" value="{{good_message}}"  bindinput="getDataBindTap"></textarea>
+		</view>
+		<!--评价内容end--->
+		<!--添加视频和图片start-->
+		<view class='videoImg'>
+			<view class='title'>添加视频/图片</view>
+			<view class='btn_img'>
+				<view class='btn_img_left' bindtap="addVideo" wx:if='{{video ==""}}'>
+					<image src='../../../static/images/video.png'></image>
+					<view>添加视频</view>
+				</view>
+				<view class='btn_img_left' bindtap="addImage"  wx:if='{{imgPic.length<9}}'>
+					<image src='../../../static/images/pic.png'></image>
+					<view>添加图片</view>
+				</view>
+			</view>
+		</view>
+		<view class='video_cont' wx:if='{{video !=""}}'>
+			<view class='next_box'>
+				<video id='prew_video' class='video' src="{{video}}" show-play-btn="{{true}}" controls="{{true}}"></video>
+					<view class='delete' bindtap="deleteVideo">x</view>
+			</view>
+		</view>
+
+		<view class='video_cont'>
+			<block wx:for='{{imgPic}}' wx:key="index">
+				<view class='next_box'>
+					<image class='box2-pic-true' src="{{item}}"></image>
+					<view class='delete' data-index="{{index}}" bindtap="deleteImg">x</view>
+				</view>
+			</block>
+		</view>
+		<!--添加视频和图片end-->
+	</view>
+	<!-- 底部评分start -->
+	<view class='bottom_grade' wx:if='{{order_type==2}}'>
+		<view class='logis'>物流服务评价</view>
+		<view class='items'>
+			<view class="star-title">快递包装 </view>
+			<view class="star-pos">
+				<image class='stars' bindtap="changeColor" data-index='0' data-no="{{item}}" wx:for="{{stardata}}" src="{{flag[0]>=item? '../../../static/images/start_select.png': '../../../static/images/start.png'}}"  wx:key='index'/>
+			</view>
+		</view>
+		<view class='items'>
+			<view class="star-title">送货速度</view>
+			<view class="star-pos">
+				<image class='stars' bindtap="changeColor" data-index='1' data-no="{{item}}" wx:for="{{stardata}}" src="{{flag[1]>=item? '../../../static/images/start_select.png': '../../../static/images/start.png'}}" wx:key='index'/>
+			</view>
+		</view>
+		<view class='items'>
+			<view class="star-title last">配送员服务</view>
+			<view class="star-pos">
+				<image class='stars' bindtap="changeColor" data-index='2' data-no="{{item}}" wx:for="{{stardata}}" src="{{flag[2]>=item?  '../../../static/images/start_select.png': '../../../static/images/start.png'}}"   wx:key='index'/>
+			</view>
+		</view>
+	</view>
+	<!-- 底部评分end -->
+	<view wx:if='{{isshow}}' class='assess_btn' bindtap="postEvaluation">提交</view>
+	<view wx:else class='assess_btn1'>提交</view>
+</view>

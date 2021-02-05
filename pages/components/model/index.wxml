@@ -1,0 +1,21 @@
+<!---取消按钮开始-->
+<view class="wrap" wx:if="{{show}}">
+  <!--遮罩层  -->
+  <view class="shade">
+    <!--面板内容  -->
+    <view class='middle_content'>
+      <image src="../../static/images/bg1.png"></image>
+      <view class='title'>
+        <block wx:if="{{content.length>0}}">
+          <view bindinput="inputChange" class="input" wx:for="{{content}}" wx:key='index'>{{item}}</view>
+        </block>
+        <slot></slot>
+      </view>
+      <view class='bg_btn'>
+        <view class='bg_btn_left' bindtap="hideModal"  data-status="cancel">{{cancelText}}</view>
+        <view class='bg_btn_right' bindtap="onConfirm" data-status="confirm">{{ confirmText}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!---取消按钮结束-->

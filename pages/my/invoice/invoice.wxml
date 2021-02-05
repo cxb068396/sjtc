@@ -1,0 +1,30 @@
+<!--pages/my/invoice/invoice.wxml-->
+<view class="wrap">
+  <!-- ①在线支付的费用，可用于开具发票  -->
+  <view class="index_head">
+    <image src="../../static/images/invoice_pic.png" class="index_head_img"></image>
+    <view class="index_head_text">在线支付的费用，可用于开具发票</view>
+  </view>
+  <!-- XX开票 -->
+  <view class="index_invoice">
+    <view class="invoice_top" bindtap="toOrdering">
+      <view class="invoice_text">订单开票</view>
+      <image src="../../static/images/turnLeft.png" class="invoice_img"></image>
+    </view>
+    <view class="invoice_bottom" bindtap="toBilling">
+      <view class="invoice_text">充值开票</view>
+      <image src="../../static/images/turnLeft.png" class="invoice_img"></image>
+    </view>
+  </view>
+  <!-- 发票XX -->
+  <view class="index_invoice">
+    <view class="invoice_top" bindtap="toIvrecords">
+      <view class="invoice_text">发票记录</view>
+      <image src="../../static/images/turnLeft.png" class="invoice_img"></image>
+    </view>
+    <view class="invoice_bottom" bindtap="toIvpayable">
+      <view class="invoice_text">发票抬头</view>
+      <image src="../../static/images/turnLeft.png" class="invoice_img"></image>
+    </view>
+  </view>
+</view>

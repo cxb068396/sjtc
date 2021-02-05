@@ -1,0 +1,29 @@
+<!--pages/my/invoice/billing/billing.wxml-->
+<view class="wrap">
+  <view class="wrap_container" wx:for="{{lists}}" wx:key="index">
+    <view class="zhanwei"></view>
+    <view class="index_con">
+      <checkbox-group data-index="{{index}}" data-name="{{item.id}}" bindtap="select">
+        <image src="{{item.checked==true?'/pages/static/images/status01.png': '/pages/static/images/status02.png'}}" class="index_con_img"></image>
+      </checkbox-group>
+      <view class="index_con_box">
+        <view>开票金额: ￥{{item.pay_money}}</view>
+        <view>充值单号: {{item.pay_num}}</view>
+        <view>充值时间: {{item.create_time}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="index_footer">
+    <view class="footer_container">
+      <checkbox-group class="footer_container_top" bindtap="selactAll">
+        <image src="{{selectilall? '/pages/static/images/status01.png':'/pages/static/images/status02.png'}}" class="footer_container_img" data-statue="selectilall"></image>
+        <view class="footer_container_quanxuan">全选</view>
+      </checkbox-group>
+      <view class="footer_container_all">
+        <view class="all_top">总计: <text>￥{{totalPrice}}</text></view>
+        <view class="all_bottom">{{totalNum}}个订单</view>
+      </view>
+      <view class="footer_container_nextStep" bindtap="tobiRecharge" data-id="{{item.id}}" data-pay="{{item.pay_num}}">下一步</view>
+    </view>
+  </view>
+</view>

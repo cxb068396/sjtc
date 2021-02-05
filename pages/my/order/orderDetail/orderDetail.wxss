@@ -1,0 +1,461 @@
+page {
+  background-color: #F6F6F6FF;
+  padding-bottom: 100rpx;
+}
+
+.header_bgc {
+  width: 100%;
+  height: 100rpx;
+  background-color: #BD4044;
+}
+
+.prompt {
+  width: 100%;
+  height: 60rpx;
+  background-color: #F6F6F6FF;
+  position: relative;
+}
+
+.prompt .prompt_info {
+  width: 710rpx;
+  height: 120rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  position: absolute;
+  top: -70rpx;
+  left: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt_info image {
+  width: 62rpx;
+  height: 62rpx;
+  margin-right: 10rpx;
+}
+
+.prompt_info_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt_info_right .info_top {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.prompt_info_right .info_time {
+  font-size: 20rpx;
+  color: #F53A00;
+}
+
+.address {
+  width: 710rpx;
+  height: 100rpx;
+  border-radius: 24rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address .img {
+  width: 26rpx;
+  height: 34rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.address .img image {
+  width: 100%;
+  height: 100%;
+}
+
+.address_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.address_info_top {
+  display: flex;
+  margin-bottom: 10rpx;
+}
+
+.address_info_top .name {
+  color: #333;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+.address_info_top .mobile {
+  color: #333;
+  font-size: 20rpx;
+  align-self: flex-end;
+}
+
+.address_bottom {
+  color: #666;
+  font-size: 20rpx;
+}
+
+.order_info {
+  width: 710rpx;
+  padding-bottom: unset;
+  background-color: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.order_info_title {
+  display: flex;
+  align-items: center;
+}
+
+.order_info_title text {
+  width: 4rpx;
+  height: 28rpx;
+  background-color: #BD4044;
+  margin-right: 20rpx;
+}
+
+.order_info_title view {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.order_info_content,
+.top,
+.middle {
+  border-bottom: 2rpx solid #F6F6F6;
+}
+.bottom{
+  padding-top: 10rpx;
+}
+
+.order_content {
+  display: flex;
+  padding: 20rpx;
+  position: relative;
+}
+
+.order_content image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.order_title {
+  display: flex;
+  flex-direction: column;
+  margin-right: 125rpx;
+  margin-left: 50rpx;
+}
+
+.order_title .title {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.order_title .new {
+  width: 64rpx;
+  height: 16rpx;
+  font-size: 16rpx;
+  color: #fff;
+  background-color: #D9B68E;
+  border-radius: 4rpx;
+  text-align: center;
+  line-height: 16rpx;
+  margin-bottom: 40rpx;
+}
+
+.order_title .price {
+  display: flex;
+}
+
+.order_title .price .newprice {
+  color: #BD4044;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.order_title .price .oldprice {
+  font-size: 20rpx;
+  color: #999;
+  text-decoration: line-through;
+  align-self: flex-end;
+}
+
+.order_content .stepper {
+  display: flex;
+  height: 30rpx;
+  /*给主容器设一个边框*/
+  border-radius: 3rpx;
+  overflow: hidden;
+  margin: 20rpx 0;
+  align-self: flex-end;
+  color: #333333;
+  font-size: 24rpx;
+  position: absolute;
+  right: 0;
+  top: 108rpx;
+}
+
+.top_info {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rpx 0;
+}
+
+.top_info .left,
+.top_info .right {
+  color: #666;
+  font-size: 24rpx;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+
+.middle_all {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20rpx 0;
+}
+
+.middle_all view {
+  color: #333;
+  font-size: 24rpx;
+}
+
+.middle_all text {
+  color: #BD4044;
+  margin-left: 30rpx;
+}
+
+.onther_info {
+  display: flex;
+  color: #666;
+  font-size: 24rpx;
+  padding: 7rpx 0;
+  border:unset
+}
+
+.onther_info text {
+  margin-left: 10rpx;
+}
+
+.order_info_bottom .more {
+  display: flex;
+  justify-content: center;
+  color: #999;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+
+.order_info_bottom .more image {
+  width: 20rpx;
+  height: 20rpx;
+  align-self: flex-end;
+  margin-left: 10rpx;
+}
+
+.order_pay_container {
+  width: 710rpx;
+  margin: 20rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  /* padding: 20rpx; */
+  box-sizing: border-box;
+}
+
+.pay_way{
+  width: 95%;
+  height: 82rpx;
+  margin: auto;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.order_pay_container .pay_way {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 20rpx; */
+}
+
+.pay_way .left {
+  font-size: 24rpx;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pay_way .left image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.pay_way .right image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 98rpx;
+  background-color: #fff;
+  align-items: center;
+}
+
+.btn .cancel,
+.btn .confirm {
+  width: 176rpx;
+  height: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  color: #BD4044;
+  border-radius: 28rpx;
+  border: 1rpx solid #BD4044;
+  margin-right: 20rpx;
+}
+
+.btn .confirm {
+  color: #fff;
+  background-color: #BD4044;
+}
+
+.nums_time {
+  width: 710rpx;
+  border-radius: 24rpx;
+  color: #666;
+  font-size: 20rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.nums_time>view:first-child {
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.nums_time .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0 10rpx 0;
+}
+
+/* 支付密码css start */
+.bg_layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+.input_main {
+  position: fixed;
+  left: 0;
+  bottom: 500rpx;
+  width: 100%;
+  height: 394rpx;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.input_title {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #e2e2e2;
+}
+
+.input_back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_back text {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: white;
+  border: 1rpx solid #aaa;
+  border-width: 5rpx 0 0 5rpx;
+  transform: rotate(-45deg);
+}
+
+.input_tip {
+  margin: 30rpx;
+  font-size: 24rpx;
+  color: #888;
+}
+
+/* 密码掩码模拟 */
+.input_row {
+  width: 690rpx;
+  margin: 0 auto;
+  height: 98rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 20rpx;
+}
+
+.input_row .pwd_item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1rpx solid #e2e2e2;
+  position: relative;
+}
+
+.pwd_item:nth-last-of-type(1) {
+  border-right: 0;
+}
+
+.pwd_item text {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  background-color: #555;
+}
+
+
+.forget_pwd {
+  float: right;
+  margin: 30rpx;
+  width: 100rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #BD4044;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+.input_control {
+  position: relative;
+  left: -300rpx;
+  bottom: 0;
+  width: 100rpx;
+  height: 100rpx;
+}

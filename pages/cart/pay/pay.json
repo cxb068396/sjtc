@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "modal":"../../components/model/index"
+  },
+  "navigationBarTitleText": "支付"
+
+}

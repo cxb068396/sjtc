@@ -1,0 +1,57 @@
+/* pages/my/invoice/invoice.wxss */
+.wrap{
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+.index_head{
+  width: 95%;
+  height: 68rpx;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.index_head_img{
+  width: 28rpx;
+  height: 28rpx;
+}
+.index_head_text{
+  font-size: 23rpx;
+  font-weight: 400;
+  color: #999;
+  margin-left: 10rpx;
+}
+.index_invoice{
+  width: 95%;
+  height: 177rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  margin: auto;
+  margin-bottom: 20rpx;
+}
+.invoice_top{
+  width: 95%;
+  height: 88rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.invoice_text{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #343434;
+}
+.invoice_img{
+  width: 13rpx;
+  height: 24rpx;
+}
+.invoice_bottom{
+  width: 95%;
+  height: 88rpx;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
